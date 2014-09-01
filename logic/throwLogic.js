@@ -1,6 +1,6 @@
 .import "generalLogic.js" as GL
 
-function changeBallPosition() {
+function changeBallPosition() { //----------------------------------------------------------
     /*-------------------Get values-------------------*/
     var CenterOfDuckX = duck.horizontalCenterWhenThrowsBall
     var CenterOfDuckY = duck.verticalCenterWhenThrowsBall
