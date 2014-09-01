@@ -13,8 +13,8 @@ class Ball : public VisibleItem
     Q_PROPERTY(int speed READ speed CONSTANT)
     Q_PROPERTY(bool isAvailable READ isAvailable WRITE setIsAvailable NOTIFY isAvailableChanged)
     Q_PROPERTY(int stepsOfThrow READ stepsOfThrow WRITE setStepsOfThrow NOTIFY stepsOfThrowChanged)
-    Q_PROPERTY(QUrl imageURL READ imageURL NOTIFY imageURLChanged)
-
+    //Q_PROPERTY(QUrl imageURL READ imageURL NOTIFY imageURLChanged)
+//int
     private:
         /*----Informace o hodu---*/
         qreal p_angle;
