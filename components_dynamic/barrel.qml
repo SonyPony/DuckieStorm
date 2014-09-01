@@ -41,7 +41,7 @@ Barrel {   //jeden objekt barelu
                     objectName: "moveAnimation"
 
                     ScriptAction { script: (function() { barrelImage.visible = true; singleBarrel.incrementedScore = false })() }
-                    NumberAnimation { target: barrelImage; property: "x"; from: root.width; to: 0-barrelImage.width; duration: GL.duration(791, 382, 2610) }
+                    NumberAnimation { target: barrelImage; property: "x"; from: root.width; to: 0-barrelImage.width; duration: GL.toNumberOfPixels(root.width)*barrels.speed }
                     ScriptAction { script: (function() { barrels.isAvailable[index] = true; barrelImage.visible = false})() }
     }
     /*-----------------------------------*/
