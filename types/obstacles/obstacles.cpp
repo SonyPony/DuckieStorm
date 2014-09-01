@@ -59,11 +59,11 @@ QUrl Obstacles::imageURL() const {
     return p_imageURL;
 }
 
-int Obstacles::speed() const {
+qreal Obstacles::speed() const {
     return p_speed;
 }
 
-void Obstacles::setSpeed(int& value) {
+void Obstacles::setSpeed(qreal &value) {
     if(value != p_speed) {
         p_speed = value;
         emit speedChanged();

@@ -11,7 +11,7 @@ class Obstacles : public QQuickItem
     Q_PROPERTY(int spawnTimeHighLimit READ spawnTimeHighLimit CONSTANT)
     Q_PROPERTY(int maximumAmount READ maximumAmount CONSTANT)
     Q_PROPERTY(QUrl imageURL READ imageURL CONSTANT)
-    Q_PROPERTY(int speed READ speed WRITE setSpeed NOTIFY speedChanged)
+    Q_PROPERTY(qreal speed READ speed WRITE setSpeed NOTIFY speedChanged)
 
     protected:
         /*-Mezní hodnoty spawn času-*/
@@ -36,9 +36,9 @@ class Obstacles : public QQuickItem
         int spawnTimeHighLimit() const;
         int maximumAmount() const;
         QUrl imageURL() const;
-        int speed() const;
+        qreal speed() const;
 
-        void setSpeed(int& value);
+        void setSpeed(qreal& value);
         /*--------------------------*/
 
     signals:
