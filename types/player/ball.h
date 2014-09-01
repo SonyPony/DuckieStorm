@@ -31,11 +31,15 @@ class Ball : public VisibleItem
         QUrl p_imageURL;
         /*-----------------------*/
 
+        /*--------Metody---------*/
+        void enable();
+        /*-----------------------*/
+
     public:
         explicit Ball(QQuickItem *parent = 0);
 
         Q_INVOKABLE void disable();
-        Q_INVOKABLE void enable();
+        Q_INVOKABLE void calculateInfo(int x, int y);
 
         /*-----Settery a gettery----*/
         qreal angle() const;

@@ -71,6 +71,7 @@ ApplicationWindow {
         /*---------------------------------*/
         Duck {
             id: duck
+            objectName: "duck"
 
             /*---Vlasnosti kachničky---*/
             heightOfJump: root.height * GL.fraction(160, 480)
@@ -235,7 +236,7 @@ ApplicationWindow {
             root.mousePressed = false;
 
             if(Gestures.checkClick(root.touchX, root.touchY, mouse.x, mouse.y, 20)) //pokud byl proveden klik hodí kachnička míčem
-                ThrowLogic.calculateThrowInfo(mouse.x, mouse.y, ball.speed);
+                ball.calculateInfo(mouse.x, mouse.y);
         }
 
         onPositionChanged: {

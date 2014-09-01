@@ -1,5 +1,9 @@
 .import "generalLogic.js" as GL
 
+/*|-----------------------------------------------------------------------------------
+  |-----------------------Vypočítává dráhu míče na základě času-----------------------
+  |----------------------------------------------------------------------------------*/
+
 function changeBallPosition() { //----------------------------------------------------------
     /*-------------------Get values-------------------*/
     var CenterOfDuckX = duck.horizontalCenterWhenThrowsBall
@@ -26,31 +30,4 @@ function changeBallPosition() { //----------------------------------------------
         ball.stepsOfThrow++;
     /*---------------------------------------------------------------------*/
 }
-
-/*|-----------------------------------------------------------------------------------
-  |------------------Vypočítá informace o hodu ze souřadnic kliknutí------------------
-  |----------------------------------------------------------------------------------*/
-
-function calculateThrowInfo(x, y, speed) {  //----------------------------------------------------------
-    if(!ball.isAvailable)   //kontrola zda je míč dostupný
-        return;
-    /*---------------Vypočítání hodnot---------------------*/
-    var CenterOfDuckX = duck.defaultX + duck.image.width/2;
-    var CenterOfDuckY = duck.image.y + duck.image.height/2;
-
-    ball.angle = Math.asin((CenterOfDuckY-y)/Math.sqrt(Math.pow(x-CenterOfDuckX,2) + Math.pow(CenterOfDuckY-y,2))); //v radiánech
-    ball.time = ((speed*Math.sin(ball.angle)+Math.sqrt(Math.pow(speed,2)*Math.pow(Math.sin(ball.angle),2)+2*10*(root.height-CenterOfDuckY)))/10); //v sekundách
-
-    duck.horizontalCenterWhenThrowsBall = CenterOfDuckX;
-    duck.verticalCenterWhenThrowsBall = CenterOfDuckY;
-    /*-----------------------------------------------------*/
-
-    /--*Nastavení zobrazení míče a vyvolání animace hodu--*/
-    ball.enable()  //vyvolá signál na animaci
-    /*----------------------------------------------------*/
-}
-
-/*|-----------------------------------------------------------------------------------
-  |-----------------------Vypočítává dráhu míče na základě času-----------------------
-  |----------------------------------------------------------------------------------*/
 
