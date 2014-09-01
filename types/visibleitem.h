@@ -7,7 +7,7 @@ class VisibleItem : public QQuickItem
 {
     Q_OBJECT
 
-    Q_PROPERTY(QUrl imageURL READ imageURL CONSTANT)
+    Q_PROPERTY(QUrl imageURL READ imageURL WRITE setImageURL NOTIFY imageURLChanged)
     Q_PROPERTY(QObject* image READ image WRITE setImage NOTIFY imageChanged)
 
     protected:
@@ -20,11 +20,14 @@ class VisibleItem : public QQuickItem
         /*-----Settery a gettery----*/
         QUrl imageURL() const;
         QObject* image();
+
         void setImage(QObject *value);
+        void setImageURL(QUrl &value);
         /*--------------------------*/
     signals:
         void literaly_nothing(); //jenom kvůli divnému expandování kódu
         void imageChanged();
+        void imageURLChanged();
 };
 
 #endif // VISIBLEITEM_H

@@ -14,3 +14,10 @@ void VisibleItem::setImage(QObject *value) {
     p_image = value;
     emit imageChanged();
 }
+
+void VisibleItem::setImageURL(QUrl &value) {
+    if(p_imageURL != value) {
+        p_imageURL = value;
+        emit imageURLChanged();
+    }
+}
