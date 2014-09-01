@@ -10,7 +10,7 @@ class Ball : public VisibleItem
 
     Q_PROPERTY(qreal angle READ angle WRITE setAngle NOTIFY angleChanged)
     Q_PROPERTY(qreal time READ time WRITE setTime NOTIFY timeChanged)
-    Q_PROPERTY(int speed READ speed CONSTANT)
+    Q_PROPERTY(int throwSpeed READ throwSpeed CONSTANT)
     Q_PROPERTY(bool isAvailable READ isAvailable WRITE setIsAvailable NOTIFY isAvailableChanged)
     Q_PROPERTY(int stepsOfThrow READ stepsOfThrow WRITE setStepsOfThrow NOTIFY stepsOfThrowChanged)
 
@@ -18,7 +18,7 @@ class Ball : public VisibleItem
         /*----Informace o hodu---*/
         qreal p_angle;
         qreal p_time;
-        int p_speed;
+        int p_throwSpeed;
         /*-----------------------*/
 
         /*--Aktuální stav míče---*/
@@ -39,7 +39,7 @@ class Ball : public VisibleItem
         /*-----Settery a gettery----*/
         qreal angle() const;
         qreal time() const;
-        int speed() const;
+        int throwSpeed() const;
         bool isAvailable() const;
         int stepsOfThrow() const;
 

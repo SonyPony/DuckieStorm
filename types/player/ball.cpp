@@ -3,7 +3,7 @@
 #include <math.h>
 
 Ball::Ball(QQuickItem *parent): VisibleItem(parent) {
-    p_speed = 10;
+    p_throwSpeed = 10;
     p_stepsOfThrow = 1;
     p_isAvailable = true;
     this->setProperty("imageURL", "../res/ballImage.svg");
@@ -27,7 +27,7 @@ void Ball::calculateInfo(int x, int y) {
     int CenterY = duck->property("verticalCenterWhenThrowsBall").toInt();
 
     p_angle = asin((CenterY-y)/sqrt(pow(x-CenterX, 2) + pow(CenterY-y, 2)));    //v radiánech
-    p_time = ((p_speed*sin(p_angle)+sqrt(pow(p_speed, 2)*pow(sin(p_angle),2)+2*10*(root->property("height").toInt()-CenterY)))/10); //v sekundách
+    p_time = ((p_throwSpeed*sin(p_angle)+sqrt(pow(p_throwSpeed, 2)*pow(sin(p_angle),2)+2*10*(root->property("height").toInt()-CenterY)))/10); //v sekundách
     /*-----------------------------------------------------*/
 
     /*----------Zapnutí animace a zviditelní míč-----------*/
@@ -62,8 +62,8 @@ qreal Ball::time() const {
     return p_time;
 }
 
-int Ball::speed() const {
-    return p_speed;
+int Ball::throwSpeed() const {
+    return p_throwSpeed;
 }
 
 bool Ball::isAvailable() const {

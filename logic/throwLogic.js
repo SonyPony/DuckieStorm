@@ -11,14 +11,14 @@ function changeBallPosition() { //----------------------------------------------
 
     var angle = ball.angle
     var time = ball.time
-    var speed = ball.speed
+    var throwSpeed = ball.throwSpeed
     var prescale = root.width * GL.fraction(55, 850);
     var precission = time*70;
     /*-----------------------------------------------------*/
 
     /*-------------Počítání další pozice míče--------------*/
-    ball.image.x = speed*(time/precission*ball.stepsOfThrow)*Math.cos(angle)*prescale+CenterOfDuckX;
-    ball.image.y = (CenterOfDuckY)-(speed*(time/precission*ball.stepsOfThrow)*Math.sin(angle)-(0.5*10*Math.pow(time/precission*ball.stepsOfThrow,2)))*prescale;
+    ball.image.x = throwSpeed*(time/precission*ball.stepsOfThrow)*Math.cos(angle)*prescale+CenterOfDuckX;
+    ball.image.y = (CenterOfDuckY)-(throwSpeed*(time/precission*ball.stepsOfThrow)*Math.sin(angle)-(0.5*10*Math.pow(time/precission*ball.stepsOfThrow,2)))*prescale;
     /*-----------------------------------------------------*/
 
     /*-Kontrola zda míč přesáhne okraj, pokud ne tak přejde na další pozici-*/
