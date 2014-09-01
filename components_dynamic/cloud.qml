@@ -109,7 +109,7 @@ Cloud {
     onStart:  SequentialAnimation {
                     objectName: "moveAnimation"
 
-                    NumberAnimation { target: singleCloud; property: "x"; from: root.width; to: 0-cloudImage.width; duration: GL.duration(791, 382, 10000) }
+                    NumberAnimation { target: singleCloud; property: "x"; from: root.width; to: 0-cloudImage.width; duration: GL.toNumberOfPixels(root.width)*clouds.speed }
                     ScriptAction { script: (function() { clouds.isAvailable[index] = true;  })() }
     }
     /*-----------------------------------*/

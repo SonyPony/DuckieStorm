@@ -61,7 +61,6 @@ ApplicationWindow {
             if(firstChange) {
                 DuckLogic.updateOutlines()
                 BarrelLogic.updateOutlines()
-                console.log(GL.toNumberOfPixels(root.width))
             }
             firstChange = true
         }
@@ -98,7 +97,6 @@ ApplicationWindow {
                 NumberAnimation { target: duck.image; property: "y"; to: duck.image.y; duration: 500; easing.type: Easing.InQuad }
                 ScriptAction { script: sounds.inWaterSound.play() }
             }
-
             /*-------------------------------------------------*/
         }
 
