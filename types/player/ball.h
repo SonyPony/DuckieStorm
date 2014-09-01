@@ -13,8 +13,7 @@ class Ball : public VisibleItem
     Q_PROPERTY(int speed READ speed CONSTANT)
     Q_PROPERTY(bool isAvailable READ isAvailable WRITE setIsAvailable NOTIFY isAvailableChanged)
     Q_PROPERTY(int stepsOfThrow READ stepsOfThrow WRITE setStepsOfThrow NOTIFY stepsOfThrowChanged)
-    //Q_PROPERTY(QUrl imageURL READ imageURL NOTIFY imageURLChanged)
-//in
+
     private:
         /*----Informace o hodu---*/
         qreal p_angle;
@@ -27,12 +26,8 @@ class Ball : public VisibleItem
         int p_stepsOfThrow;
         /*-----------------------*/
 
-        /*-----Grafika míče------*/
-        QUrl p_imageURL;
-        /*-----------------------*/
-
         /*--------Metody---------*/
-        void enable();
+        Q_INVOKABLE void enable();
         /*-----------------------*/
 
     public:
@@ -47,7 +42,6 @@ class Ball : public VisibleItem
         int speed() const;
         bool isAvailable() const;
         int stepsOfThrow() const;
-        QUrl imageURL() const;
 
         void setAngle(qreal& value);
         void setTime(qreal& value);
@@ -62,7 +56,6 @@ class Ball : public VisibleItem
         void timeChanged();
         void isAvailableChanged();
         void stepsOfThrowChanged();
-        void imageURLChanged();
 };
 
 #endif // BALL_H

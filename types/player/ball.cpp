@@ -6,7 +6,7 @@ Ball::Ball(QQuickItem *parent): VisibleItem(parent) {
     p_speed = 10;
     p_stepsOfThrow = 1;
     p_isAvailable = true;
-    p_imageURL = QUrl("../res/ballImage.svg");
+    this->setProperty("imageURL", "../res/ballImage.svg");
 }
 
 void Ball::calculateInfo(int x, int y) {
@@ -72,11 +72,6 @@ bool Ball::isAvailable() const {
 
 int Ball::stepsOfThrow() const {
     return p_stepsOfThrow;
-}
-
-QUrl Ball::imageURL() const {
-    return p_imageURL;
-
 }
 
 void Ball::setAngle(qreal &value) {
