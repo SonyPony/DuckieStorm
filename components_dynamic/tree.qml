@@ -1,0 +1,32 @@
+import QtQuick 2.0
+
+import Tree 1.0
+import "../logic/generalLogic.js" as GL
+
+Tree {
+    id: singleTree
+
+    /*---Vyrenderovaný obrázek stromu----*/
+    Image {
+        id: image
+        objectName: "image"
+
+        source: "../res/background_treeImage.svg"
+
+        width: 10*game.sizeOfPixel
+        height: 16*game.sizeOfPixel
+
+        sourceSize.width: 1000
+        sourceSize.height: 1600
+    }
+    /*-----------------------------------*/
+
+    /*-------Animace pohybu dopředu------*/
+    onStart:  SequentialAnimation {
+                    objectName: "moveAnimation"
+
+                    NumberAnimation { target: singleTree; property: "x"; from: root.width; to: 0-image.width; duration: GL.duration(791, 382, 10000) }
+                    ScriptAction { script: (function() { trees.isAvailable[index] = true; singleTree.visible = false })() }
+    }
+    /*-----------------------------------*/
+}

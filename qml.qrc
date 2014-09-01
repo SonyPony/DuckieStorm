@@ -1,0 +1,34 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>logic/duckLogic.js</file>
+        <file>logic/gestures.js</file>
+        <file>res/shapes.js</file>
+        <file>qml.qrc</file>
+        <file>res/duckImage.svg</file>
+        <file>res/ballImage.svg</file>
+        <file>logic/collisionLogic.js</file>
+        <file>res/barrelImage.svg</file>
+        <file>logic/barrelLogic.js</file>
+        <file>logic/generalLogic.js</file>
+        <file>res/cloudImage.svg</file>
+        <file>logic/cloudLogic.js</file>
+        <file>res/background_groundImage.svg</file>
+        <file>res/background_treeImage.svg</file>
+        <file>logic/backgroundLogic.js</file>
+        <file>logic/gameLogic.js</file>
+        <file>res/lightingImage.svg</file>
+        <file>res/sounds/scoreSound.wav</file>
+        <file>res/sounds/lightingSound.wav</file>
+        <file>res/sounds/outFromWaterSound.wav</file>
+        <file>res/sounds/intoWaterSound.wav</file>
+        <file>res/sounds/test.mp3</file>
+        <file>components_dynamic/tree.qml</file>
+        <file>components_dynamic/barrel.qml</file>
+        <file>components_dynamic/cloud.qml</file>
+        <file>components_dynamic/outlineRectangle.qml</file>
+        <file>components_static/Sounds.qml</file>
+        <file>components_static/Graphics.qml</file>
+        <file>logic/throwLogic.js</file>
+    </qresource>
+</RCC>
