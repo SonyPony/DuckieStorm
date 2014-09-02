@@ -13,15 +13,6 @@ Cloud::Cloud(QQuickItem *parent): Obstacle(parent) {
     QObject::connect(this, SIGNAL(disappear()), this, SLOT(setActive()));
 }
 
-/*void Cloud::playSound(QObject *parent) {
-    QObject *audio = parent->findChild<QObject*>("lightingSound");
-
-    if(audio->property("isPlaying")==true) {
-        QMetaObject::invokeMethod(audio, "stop");
-    }
-    QMetaObject::invokeMethod(audio,"play");
-}*/
-
 void Cloud::restore() {
     QObject *chargeBar = this->findChild<QObject*>("chargeBar");
     QObject *image = this->findChild<QObject*>("image");
