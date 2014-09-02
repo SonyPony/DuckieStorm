@@ -15,7 +15,6 @@ void Ball::updateBallPosition() {
     /*------------------Vyhledání objektů------------------*/
     QObject *root = this->parent()->parent();
     QObject *duck = this->parent()->findChild<QObject*>("duck");
-    QObject *duckImage = qvariant_cast<QObject*>(duck->property("image"));
     /*-----------------------------------------------------*/
 
     /*-------------------Nastavení hodnot------------------*/
