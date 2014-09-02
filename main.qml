@@ -116,7 +116,7 @@ ApplicationWindow {
                 loops: Animation.Infinite
 
                 NumberAnimation { duration: 1 }
-                ScriptAction { script: ThrowLogic.changeBallPosition() }
+                ScriptAction { script: ball.updateBallPosition() }
             }
             /*-------------------------------------------------*/
         }

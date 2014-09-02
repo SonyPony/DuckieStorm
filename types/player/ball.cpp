@@ -9,6 +9,36 @@ Ball::Ball(QQuickItem *parent): VisibleItem(parent) {
     this->setProperty("imageURL", "../res/ballImage.svg");
 }
 
+
+
+void Ball::updateBallPosition() {
+    /*------------------Vyhledání objektů------------------*/
+    QObject *root = this->parent()->parent();
+    QObject *duck = this->parent()->findChild<QObject*>("duck");
+    QObject *duckImage = qvariant_cast<QObject*>(duck->property("image"));
+    /*-----------------------------------------------------*/
+
+    /*-------------------Nastavení hodnot------------------*/
+    int CenterX = duck->property("horizontalCenterWhenThrowsBall").toInt();
+    int CenterY = duck->property("verticalCenterWhenThrowsBall").toInt();
+    qreal prescale = root->property("width").toDouble()*(55.0/850.0);
+    qreal precission = p_time*70;
+    /*-----------------------------------------------------*/
+
+    /*-------------Počítání další pozice míče--------------*/
+    p_image->setProperty("x",(float)p_throwSpeed*(p_time/precission*(float)p_stepsOfThrow)*cos(p_angle)*prescale+CenterX);
+    p_image->setProperty("y",CenterY-(p_throwSpeed*(p_time/precission*p_stepsOfThrow)*sin(p_angle)-(5*pow(p_time/precission*p_stepsOfThrow,2)))*prescale);
+    /*-----------------------------------------------------*/
+
+    /*-Kontrola zda míč přesáhne okraj, pokud ne tak přejde na další pozici-*/
+    if(precission<=p_stepsOfThrow || p_image->property("y").toInt()>=root->property("height").toInt())
+        this->disable();
+
+    else
+        p_stepsOfThrow++;
+    /*----------------------------------------------------------------------*/
+}
+
 void Ball::calculateInfo(int x, int y) {
     if(!p_isAvailable)  //kontrola zda míč je dostupný
         return;

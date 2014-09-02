@@ -35,6 +35,7 @@ class Ball : public VisibleItem
 
         Q_INVOKABLE void disable();
         Q_INVOKABLE void calculateInfo(int x, int y);
+        Q_INVOKABLE void updateBallPosition();
 
         /*-----Settery a gettery----*/
         qreal angle() const;
