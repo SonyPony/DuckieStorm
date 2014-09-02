@@ -10,7 +10,6 @@ import Clouds 1.0
 import Game 1.0
 
 import "logic/duckLogic.js" as DuckLogic
-import "logic/throwLogic.js" as ThrowLogic
 import "logic/barrelLogic.js" as BarrelLogic
 import "logic/cloudLogic.js" as CloudLogic
 import "logic/backgroundLogic.js" as BackgroundLogic

@@ -29,6 +29,5 @@
         <file>components_dynamic/outlineRectangle.qml</file>
         <file>components_static/Sounds.qml</file>
         <file>components_static/Graphics.qml</file>
-        <file>logic/throwLogic.js</file>
     </qresource>
 </RCC>
