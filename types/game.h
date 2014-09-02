@@ -20,10 +20,10 @@ class Game : public QQuickItem
         int p_score;
         /*------------------------*/
 
-        /*Grafické vlastnosti hry*/
+        /*Grafické vlastnosti hry-*/
         int p_sizeOfPixel;
         bool p_firstChange;
-        /*-----------------------*/
+        /*------------------------*/
 
     public:
         explicit Game(QQuickItem *parent = 0);
