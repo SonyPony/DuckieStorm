@@ -3,6 +3,14 @@ function pause() {
 game.paused = true
     barrels.pause()
     clouds.pause()
+
+    if(throwAnimation.running)
+        throwAnimation.pause()
+    else
+        ball.isAvailable = false
+
+
+
    // trees.pause()
     //barrelGenerator.running = false
     console.log("paused")
@@ -17,4 +25,8 @@ barrels.resume()
     clouds.resume()
     //trees.resume()
     console.log("resumed")
+    if(ball.visible)
+        throwAnimation.resume()
+    else
+        ball.isAvailable = true
 }
