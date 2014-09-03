@@ -36,10 +36,15 @@ ApplicationWindow {
     property bool mousePressed: false
     /*-----------------------*/
 
+    onVisibilityChanged: {
+        if(visibility==3)   //možná ještě 0
+            GameLogic.pause()
+        console.log(visibility + "------------------------------------------------------------------------")
+    }
+
     onWidthChanged: {
         DuckLogic.updateOutlines()
     }
-
 
     Game {
         id: game
@@ -190,12 +195,12 @@ ApplicationWindow {
                 onPausedChanged: {
                     if(game.paused) {
                         trees.pause()
-                        treeGenerator.running = false
+                        treeGenerator.pause()
                     }
 
                     else {
                         trees.resume()
-                        treeGenerator.running = true
+                        treeGenerator.resume()
                     }
                 }
             }
