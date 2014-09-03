@@ -30,7 +30,7 @@ barrels.resume()
     cloudGenerator.resume()
     //trees.resume()
     console.log("resumed")
-    if(ball.visible)
+    if(ball.image.visible)
         throwAnimation.resume()
     else
         ball.isAvailable = true
