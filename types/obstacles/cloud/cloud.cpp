@@ -13,6 +13,8 @@ Cloud::Cloud(QQuickItem *parent): Obstacle(parent) {
     QObject::connect(this, SIGNAL(disappear()), this, SLOT(setActive()));
 }
 
+
+
 void Cloud::restore() {
     QObject *chargeBar = this->findChild<QObject*>("chargeBar");
     QObject *image = this->findChild<QObject*>("image");

@@ -22,8 +22,6 @@ class Cloud : public Obstacle
     public:
         explicit Cloud(QQuickItem *parent = 0);
 
-       // Q_INVOKABLE void playSound(QObject* parent);
-
         /*-----Settery a gettery----*/
         int charge() const;
         int chargePiece() const;
