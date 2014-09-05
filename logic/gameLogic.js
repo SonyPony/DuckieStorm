@@ -10,14 +10,7 @@ barrelGenerator.pause()
         throwAnimation.pause()
     else
         ball.isAvailable = false
-
-
-
-   // trees.pause()
-    //barrelGenerator.running = false
     console.log("paused")
-    //for(var key in barrels.objects)
-      //  barrels.objects[key].pause()
 }
 
 function resume() {
