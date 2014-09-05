@@ -3,7 +3,6 @@
 
 #include <QQuickItem>
 #include "types/obstacles/obstacles.h"
-#include "types/visibleitem.h"
 
 class Clouds : public Obstacles
 {
