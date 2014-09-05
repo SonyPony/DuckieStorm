@@ -2,15 +2,16 @@
 #define OBSTACLES_H
 
 #include <QQuickItem>
+#include "types/visibleitem.h"
 
-class Obstacles : public QQuickItem
+class Obstacles : public VisibleItem
 {
     Q_OBJECT
 
     Q_PROPERTY(int spawnTimeLowLimit READ spawnTimeLowLimit CONSTANT)
     Q_PROPERTY(int spawnTimeHighLimit READ spawnTimeHighLimit CONSTANT)
     Q_PROPERTY(int maximumAmount READ maximumAmount CONSTANT)
-    Q_PROPERTY(QUrl imageURL READ imageURL CONSTANT)
+    //Q_PROPERTY(QUrl imageURL READ imageURL CONSTANT)
     Q_PROPERTY(qreal speed READ speed WRITE setSpeed NOTIFY speedChanged)
 
     protected:
@@ -21,7 +22,7 @@ class Obstacles : public QQuickItem
 
         /*---Informace a cesty---*/
         int p_maximumAmount;
-        QUrl p_imageURL;
+        //QUrl p_imageURL;
         int p_speed;
         /*-----------------------*/
 
@@ -35,7 +36,7 @@ class Obstacles : public QQuickItem
         int spawnTimeLowLimit() const;
         int spawnTimeHighLimit() const;
         int maximumAmount() const;
-        QUrl imageURL() const;
+        //QUrl imageURL() const;
         qreal speed() const;
 
         void setSpeed(qreal& value);

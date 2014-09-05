@@ -1,6 +1,6 @@
 #include "obstacles.h"
 
-Obstacles::Obstacles(QQuickItem *parent): QQuickItem(parent) {}
+Obstacles::Obstacles(QQuickItem *parent): VisibleItem(parent) {}
 
 void Obstacles::pause() {
     QVariantList *enable = new QVariantList;
@@ -55,9 +55,9 @@ int Obstacles::maximumAmount() const {
     return p_maximumAmount;
 }
 
-QUrl Obstacles::imageURL() const {
+/*QUrl Obstacles::imageURL() const {
     return p_imageURL;
-}
+}*/
 
 qreal Obstacles::speed() const {
     return p_speed;

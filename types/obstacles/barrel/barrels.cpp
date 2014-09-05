@@ -5,6 +5,6 @@ Barrels::Barrels(QQuickItem *parent): Obstacles(parent) {
     p_spawnTimeHightLimit = 2000;
     p_maximumAmount = 8;
     p_speed = 21.698;   //kolik zabere milisekund na posunutí o 1 gam pixel
-    p_imageURL = QUrl("../res/images/barrelImage.svg");
+    this->setImageURL(QUrl("../res/images/barrelImage.svg"));
 }
 

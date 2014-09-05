@@ -28,9 +28,6 @@ int Duck::verticalCenterWhenThrowsBall() const {
     return p_verticalCenterWhenThrowsBall;
 }
 
-QUrl Duck::imageURL() const {
-    return p_imageURL;
-}
 
 void Duck::setSize(int& value) {
     if(value != p_size) {

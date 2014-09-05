@@ -22,7 +22,7 @@ class VisibleItem : public QQuickItem
         QObject* image();
 
         void setImage(QObject *value);
-        void setImageURL(QUrl &value);
+        void setImageURL(QUrl value);
         /*--------------------------*/
     signals:
         void literaly_nothing(); //jenom kvůli divnému expandování kódu

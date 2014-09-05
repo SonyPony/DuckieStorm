@@ -4,11 +4,11 @@
 #include <QQuickItem>
 #include "types/visibleitem.h"
 
+
 class Duck : public VisibleItem
 {
     Q_OBJECT
 
-    //Q_PROPERTY(QUrl imageURL READ imageURL NOTIFY imageURLChanged)
     Q_PROPERTY(int horizontalCenterWhenThrowsBall READ horizontalCenterWhenThrowsBall WRITE setHorizontalCenterWhenThrowsBall NOTIFY horizontalCenterWhenThrowsBallChanged)
     Q_PROPERTY(int verticalCenterWhenThrowsBall READ verticalCenterWhenThrowsBall WRITE setVerticalCenterWhenThrowsBall NOTIFY verticalCenterWhenThrowsBallChanged)
     Q_PROPERTY(int size READ size WRITE setSize NOTIFY sizeChanged)
@@ -46,7 +46,7 @@ class Duck : public VisibleItem
         int defaultY() const;
         int horizontalCenterWhenThrowsBall() const;
         int verticalCenterWhenThrowsBall() const;
-        QUrl imageURL() const;
+        //QUrl imageURL() const;
 
         void setSize(int& value);
         void setHeightOfJump(int& value);
@@ -65,7 +65,7 @@ class Duck : public VisibleItem
         void defaultYChanged();
         void horizontalCenterWhenThrowsBallChanged();
         void verticalCenterWhenThrowsBallChanged();
-        void imageURLChanged();
+        //void imageURLChanged();
 };
 
 #endif // DUCK_H
