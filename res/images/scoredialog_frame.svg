@@ -1,0 +1,20 @@
+<svg width="79" height="34">
+	<rect x="0" y="0" width="3" height="1" style="fill:rgb(127, 127, 127)"/>
+	<rect x="0" y="1" width="1" height="2" style="fill:rgb(127, 127, 127)"/>
+
+	<rect x="0" y="31" width="1" height="3" style="fill:rgb(127, 127, 127)"/>
+	<rect x="1" y="33" width="2" height="1" style="fill:rgb(127, 127, 127)"/>
+
+	<rect x="76" y="0" width="3" height="1" style="fill:rgb(127, 127, 127)"/>
+	<rect x="78" y="1" width="1" height="2" style="fill:rgb(127, 127, 127)"/>
+
+	<rect x="76" y="33" width="3" height="1" style="fill:rgb(127, 127, 127)"/>
+	<rect x="78" y="31" width="1" height="2" style="fill:rgb(127, 127, 127)"/>
+
+	<rect x="1" y="1" width="77" height="2" style="fill:rgb(255, 201, 14)"/>
+	<rect x="1" y="31" width="77" height="2" style="fill:rgb(255, 201, 14)"/>
+	<rect x="1" y="3" width="2" height="28" style="fill:rgb(255, 201, 14)"/>
+	<rect x="76" y="3" width="2" height="28" style="fill:rgb(255, 201, 14)"/>
+
+	<rect x="3" y="3" width="73" height="28" style="fill:rgb(255, 241, 193)"/>
+</svg>

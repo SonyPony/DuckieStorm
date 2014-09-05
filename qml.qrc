@@ -31,5 +31,6 @@
         <file>res/images/cloudImage.svg</file>
         <file>res/images/duckImage.svg</file>
         <file>res/images/lightingImage.svg</file>
+        <file>res/images/scoredialog_frame.svg</file>
     </qresource>
 </RCC>

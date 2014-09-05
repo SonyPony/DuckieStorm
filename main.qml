@@ -59,6 +59,9 @@ ApplicationWindow {
             id: graphics
             objectName: "graphics"
         }
+        ScoreDialog {
+
+        }
 
         /*----Nastavení vazby----*/
         sizeOfPixel: (root.height * GL.fraction(120, 480))/Shapes.getDuckNumberOfPixels("column")
