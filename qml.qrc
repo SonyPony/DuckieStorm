@@ -5,19 +5,12 @@
         <file>logic/gestures.js</file>
         <file>res/shapes.js</file>
         <file>qml.qrc</file>
-        <file>res/duckImage.svg</file>
-        <file>res/ballImage.svg</file>
         <file>logic/collisionLogic.js</file>
-        <file>res/barrelImage.svg</file>
         <file>logic/barrelLogic.js</file>
         <file>logic/generalLogic.js</file>
-        <file>res/cloudImage.svg</file>
         <file>logic/cloudLogic.js</file>
-        <file>res/background_groundImage.svg</file>
-        <file>res/background_treeImage.svg</file>
         <file>logic/backgroundLogic.js</file>
         <file>logic/gameLogic.js</file>
-        <file>res/lightingImage.svg</file>
         <file>res/sounds/scoreSound.wav</file>
         <file>res/sounds/lightingSound.wav</file>
         <file>res/sounds/outFromWaterSound.wav</file>
@@ -31,5 +24,12 @@
         <file>components_static/Graphics.qml</file>
         <file>components_static/ScoreDialog.qml</file>
         <file>res/fonts/Fleftex_M.ttf</file>
+        <file>res/images/background_groundImage.svg</file>
+        <file>res/images/background_treeImage.svg</file>
+        <file>res/images/ballImage.svg</file>
+        <file>res/images/barrelImage.svg</file>
+        <file>res/images/cloudImage.svg</file>
+        <file>res/images/duckImage.svg</file>
+        <file>res/images/lightingImage.svg</file>
     </qresource>
 </RCC>

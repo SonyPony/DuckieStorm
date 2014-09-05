@@ -12,7 +12,7 @@ Cloud {
     /*----Vyrenderovaný obrázek blesku----*/
     Image {
         id: lightingImage
-        source: "../res/lightingImage.svg"
+        source: "../res/images/lightingImage.svg"
 
         visible: false
 

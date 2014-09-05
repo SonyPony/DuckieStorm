@@ -1,7 +1,7 @@
 #include "duck.h"
 
 Duck::Duck(QQuickItem *parent): VisibleItem(parent) {
-    p_imageURL = QUrl("../res/duckImage.svg");
+    p_imageURL = QUrl("../res/images/duckImage.svg");
 }
 
 int Duck::size() const {

@@ -11,8 +11,7 @@ Tree {
         id: image
         objectName: "image"
 
-        source: "../res/background_treeImage.svg"
-
+        source: "../res/images/background_treeImage.svg"
         width: 10*game.sizeOfPixel
         height: 16*game.sizeOfPixel
 

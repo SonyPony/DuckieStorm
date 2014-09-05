@@ -6,7 +6,7 @@ Ball::Ball(QQuickItem *parent): VisibleItem(parent) {
     p_throwSpeed = 10;
     p_stepsOfThrow = 1;
     p_isAvailable = true;
-    this->setProperty("imageURL", "../res/ballImage.svg");
+    this->setProperty("imageURL", "../res/images/ballImage.svg");
 }
 
 

@@ -137,7 +137,7 @@ Item {
         delegate: Image {
             id: image
 
-            source: "../res/background_groundImage.svg"
+            source: "../res/images/background_groundImage.svg"
 
             x: modelData*width
             y: lineOfRiver.y - height
