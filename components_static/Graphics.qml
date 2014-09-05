@@ -54,9 +54,14 @@ Item {
     Text {
         id: scoreText
         z: 1
-        font.pixelSize: 50
+
         text: "0"
+        color: "orange"
+
+        font.pixelSize: 7*game.sizeOfPixel
+        font.family: pixelFont.name
     }
+
     /*-----------------------------------*/
 
     /*-----------Modré pozadí------------*/

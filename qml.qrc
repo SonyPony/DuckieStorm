@@ -29,5 +29,7 @@
         <file>components_dynamic/outlineRectangle.qml</file>
         <file>components_static/Sounds.qml</file>
         <file>components_static/Graphics.qml</file>
+        <file>components_static/ScoreDialog.qml</file>
+        <file>res/fonts/Fleftex_M.ttf</file>
     </qresource>
 </RCC>

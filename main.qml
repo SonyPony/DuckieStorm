@@ -49,6 +49,11 @@ ApplicationWindow {
     Game {
         id: game
 
+        FontLoader {
+            id: pixelFont
+            source: "res/fonts/Fleftex_M.ttf"
+        }
+
         Sounds { id: sounds }
         Graphics {
             id: graphics
