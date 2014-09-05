@@ -15,7 +15,6 @@ SOURCES += main.cpp \
     types/game.cpp \
     types/background/trees.cpp \
     types/background/tree.cpp \
-    types/scoredialog.cpp \
     types/visibleitem.cpp
 
 RESOURCES += qml.qrc
@@ -44,6 +43,5 @@ HEADERS += \
     types/game.h \
     types/background/trees.h \
     types/background/tree.h \
-    types/scoredialog.h \
     types/visibleitem.h
 
