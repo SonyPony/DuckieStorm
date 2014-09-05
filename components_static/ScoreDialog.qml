@@ -21,28 +21,32 @@ Item {
     }
 
     Item {
+
+        x: 14*game.sizeOfPixel
+        y: 9*game.sizeOfPixel
         z: 1
 
-        anchors.horizontalCenter: frame.verticalCenter
-        anchors.verticalCenter: frame.verticalCenter
+        Rectangle { //červené pozadí za "HIGH"
+            x: highTitle.x - 2*game.sizeOfPixel
+            y: highTitle.y - 2*game.sizeOfPixel
 
-        Rectangle {
-            id: highBackground
-
-            width: childrenRect.width
-            height: childrenRect.height
+            width: 27*game.sizeOfPixel
+            height: 11*game.sizeOfPixel
             color: "red"
-
-            Text {
-                id: highTitle
-
-                text: qsTr("HIGH")
-                color: "white"
-
-                font.pixelSize: 7*game.sizeOfPixel
-                font.family: pixelFont.name
-            }
         }
+
+        Text {
+            id: highTitle
+
+            text: qsTr("HIGH")
+            color: "white"
+
+            font.pixelSize: 8*game.sizeOfPixel
+            font.family: pixelFont.name
+
+
+        }
+
 
         Text {
             id: scoreTitle
@@ -50,9 +54,10 @@ Item {
             text: qsTr("SCORE")
             color: "orange"
 
-            anchors.left: highBackground.right
+            anchors.left: highTitle.right
+            anchors.leftMargin: 2*game.sizeOfPixel
 
-            font.pixelSize: 7*game.sizeOfPixel
+            font.pixelSize: 8*game.sizeOfPixel
             font.family: pixelFont.name
         }
     }
