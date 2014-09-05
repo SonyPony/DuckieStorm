@@ -32,9 +32,6 @@ class Duck : public VisibleItem
         int p_verticalCenterWhenThrowsBall;
         /*-------------------------*/
 
-        /*---Grafika kachničky---*/
-        //QUrl p_imageURL;
-        /*-----------------------*/
 
     public:
         explicit Duck(QQuickItem *parent = 0);

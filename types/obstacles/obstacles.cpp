@@ -55,9 +55,6 @@ int Obstacles::maximumAmount() const {
     return p_maximumAmount;
 }
 
-/*QUrl Obstacles::imageURL() const {
-    return p_imageURL;
-}*/
 
 qreal Obstacles::speed() const {
     return p_speed;
