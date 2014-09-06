@@ -15,7 +15,7 @@ class FileStream : public QQuickItem
     public:
         explicit FileStream(QQuickItem *parent = 0);
 
-        Q_INVOKABLE QString read();
+        Q_INVOKABLE int read();
         Q_INVOKABLE bool write(const QString& data);
 
         /*-----Settery a gettery----*/

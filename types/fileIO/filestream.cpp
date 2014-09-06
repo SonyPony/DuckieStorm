@@ -3,7 +3,7 @@
 
 FileStream::FileStream(QQuickItem *parent): QQuickItem(parent) {}
 
-QString FileStream::read() {
+int FileStream::read() {
     QFile file(p_source);
     QString content;
 
@@ -13,11 +13,11 @@ QString FileStream::read() {
 
         file.close();
 
-        return content;
+        return content.toInt();
     }
 
     else
-        return "Unable to open.";
+        return -1;
 }
 
 bool FileStream::write(const QString &data) {
