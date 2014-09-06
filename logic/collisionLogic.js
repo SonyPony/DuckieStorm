@@ -1,3 +1,5 @@
+.import "gameLogic.js" as GameLogic
+
 /*|-----------------------------------------------------------------------------------
   |--------------------------------Kontroluje kolizi----------------------------------
   |----------------------------------------------------------------------------------*/
@@ -53,7 +55,7 @@ function incrementScore() {
     }
 
     else if(checkCollision()) {
-        game.score = 0;
+        GameLogic.end()
         parent.parent.incrementedScore = true;
     }
 }

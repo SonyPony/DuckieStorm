@@ -4,10 +4,11 @@ import "../logic/generalLogic.js" as GL
 Item {
     id: scoreDialog
 
-    property bool highScore: true
+    property bool highScore: false
+    signal showUp()
 
     x: (root.width-frame.width)/2
-    y: (root.height-frame.height)/2 - 4*game.sizeOfPixel
+    visible: false
 
     /*---------------Frame---------------*/
     Image {
@@ -90,4 +91,9 @@ Item {
         font.family: pixelFont.name
     }
     /*-----------------------------------*/
+
+    onShowUp: SequentialAnimation {
+            ScriptAction { script: scoreDialog.visible = true }
+            NumberAnimation { target: scoreDialog; property: "y"; from: root.width; to: (root.height-frame.height)/2 - 4*game.sizeOfPixel; duration: 1500; easing.type: Easing.InOutCubic }
+        }
 }

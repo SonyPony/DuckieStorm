@@ -28,3 +28,13 @@ barrels.resume()
     else
         ball.isAvailable = true
 }
+
+function end() {
+    if(game.highScore<game.score) {
+        scoreFile.write(game.score)
+        scoreDialog.highScore = true
+    }
+
+    pause()
+    scoreDialog.showUp()
+}

@@ -7,6 +7,10 @@ Game::Game(QQuickItem *parent): QQuickItem(parent) {
     p_paused = false;
 }
 
+int Game::highScore() const {
+    return p_highScore;
+}
+
 bool Game::over() const {
     return p_over;
 }
@@ -25,6 +29,13 @@ bool Game::firstChange() const {
 
 bool Game::paused() const {
     return p_paused;
+}
+
+void Game::setHighScore(int &value) {
+    if(p_highScore != value) {
+        p_highScore = value;
+        emit highScoreChanged();
+    }
 }
 
 void Game::setOver(bool& value) {

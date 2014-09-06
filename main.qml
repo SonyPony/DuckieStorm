@@ -60,7 +60,7 @@ ApplicationWindow {
             id: graphics
             objectName: "graphics"
         }
-        ScoreDialog {}
+        ScoreDialog { id: scoreDialog }
 
         FileStream {
             id: scoreFile
@@ -70,10 +70,10 @@ ApplicationWindow {
         /*----Nastavení vazby----*/
         sizeOfPixel: (root.height * GL.fraction(120, 480))/Shapes.getDuckNumberOfPixels("column")
         /*-----------------------*/
+        highScore: scoreFile.read()
 
         onScoreChanged: {
             graphics.scoreText.text = game.score
-        scoreFile.write(game.score)
         }
 
         onSizeOfPixelChanged: { //toto proběhne hned na začátku u Androidu
@@ -82,6 +82,12 @@ ApplicationWindow {
                 BarrelLogic.updateOutlines()
             }
             firstChange = true
+        }
+
+        onOverChanged: {
+            if(!game.over) {
+
+            }
         }
 
         /*---------------------------------*/

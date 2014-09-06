@@ -1,3 +1,5 @@
+.import "gameLogic.js" as GameLogic
+
 /*|-----------------------------------------------------------------------------------
   |----------------------Inicializuje mraky a jejich vlastnosti-----------------------
   |----------------------------------------------------------------------------------*/
@@ -34,7 +36,7 @@ function sendCloud() {      //--------------------------------------------------
 
 function checkDischarge_and_Collision() {       //--------------------------------------------------------??????????????????
     if(singleCloud.active && dischargeArea.x+singleCloud.x<=duck.image.x+duck.image.width)
-        game.score = 0
+        GameLogic.end()
     if(singleCloud.active && singleCloud.x+dischargeArea.x <= ball.image.x && singleCloud.x+dischargeArea.x+dischargeArea.width >= ball.image.x+ball.image.width && dischargeArea.y <= ball.image.y+ball.image.y && dischargeArea.y+dischargeArea.height >= ball.image.y && !ball.isAvailable) {
         /*------Zmizení míče------*/
         ball.disable();
