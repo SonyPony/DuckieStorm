@@ -8,6 +8,7 @@ import Ball 1.0
 import Barrels 1.0
 import Clouds 1.0
 import Game 1.0
+import FileStream 1.0
 
 import "logic/duckLogic.js" as DuckLogic
 import "logic/barrelLogic.js" as BarrelLogic
@@ -59,15 +60,21 @@ ApplicationWindow {
             id: graphics
             objectName: "graphics"
         }
-        ScoreDialog {
+        ScoreDialog {}
 
+        FileStream {
+            id: scoreFile
+            source: "score.txt"
         }
 
         /*----Nastavení vazby----*/
         sizeOfPixel: (root.height * GL.fraction(120, 480))/Shapes.getDuckNumberOfPixels("column")
         /*-----------------------*/
 
-        onScoreChanged: graphics.scoreText.text = game.score  //nahradit výpisem na obrazovky
+        onScoreChanged: {
+            graphics.scoreText.text = game.score
+        scoreFile.write(game.score)
+        }
 
         onSizeOfPixelChanged: { //toto proběhne hned na začátku u Androidu
             if(firstChange) {

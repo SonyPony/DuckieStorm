@@ -12,11 +12,13 @@
 #include "types/game.h"
 #include "types/background/trees.h"
 #include "types/background/tree.h"
+#include "types/fileIO/filestream.h"
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
+    qmlRegisterType<FileStream>("FileStream", 1, 0, "FileStream");
     qmlRegisterType<Tree>("Tree", 1, 0, "Tree");
     qmlRegisterType<Trees>("Trees", 1, 0, "Trees");
     qmlRegisterType<Barrel>("Barrel", 1, 0, "Barrel");

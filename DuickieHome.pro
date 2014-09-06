@@ -15,7 +15,8 @@ SOURCES += main.cpp \
     types/game.cpp \
     types/background/trees.cpp \
     types/background/tree.cpp \
-    types/visibleitem.cpp
+    types/visibleitem.cpp \
+    types/fileIO/filestream.cpp
 
 RESOURCES += qml.qrc
 
@@ -43,5 +44,6 @@ HEADERS += \
     types/game.h \
     types/background/trees.h \
     types/background/tree.h \
-    types/visibleitem.h
+    types/visibleitem.h \
+    types/fileIO/filestream.h
 
