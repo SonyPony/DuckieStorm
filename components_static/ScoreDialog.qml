@@ -4,10 +4,10 @@ import "../logic/generalLogic.js" as GL
 Item {
     id: scoreDialog
 
+    property bool highScore: true
+
     x: (root.width-frame.width)/2
     y: (root.height-frame.height)/2 - 4*game.sizeOfPixel
-
-    property bool highScore: true
 
     /*---------------Frame---------------*/
     Image {
