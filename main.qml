@@ -248,6 +248,8 @@ ApplicationWindow {
     /*---------------------------------*/
 
     MouseArea {
+        id: rootMouseArea
+
         anchors.fill: parent
 
         onPressed: {

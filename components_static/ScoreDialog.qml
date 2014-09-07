@@ -4,6 +4,7 @@ import "../logic/generalLogic.js" as GL
 Item {
     id: scoreDialog
 
+    //property alias retryButton: retryButton
     property bool highScore: false
     signal showUp()
 
@@ -89,6 +90,28 @@ Item {
 
         font.pixelSize: 8*game.sizeOfPixel
         font.family: pixelFont.name
+    }
+    /*-----------------------------------*/
+
+    /*------Tlačítko na restart hry------*/
+    Text {
+        id: retryButton
+
+        text: qsTr("RETRY")
+        color: "black"
+
+        anchors.bottom: frame.bottom
+        anchors.margins: 4*game.sizeOfPixel
+
+        font.pixelSize: 4*game.sizeOfPixel
+        font.family: pixelFont.name
+
+        MouseArea {
+            propagateComposedEvents: true
+            anchors.fill: parent
+
+            onClicked: console.log("click")
+        }
     }
     /*-----------------------------------*/
 
