@@ -13,7 +13,18 @@ Cloud::Cloud(QQuickItem *parent): Obstacle(parent) {
     QObject::connect(this, SIGNAL(disappear()), this, SLOT(setActive()));
 }
 
+void Cloud::restart(QObject* group) {
+    QObject *animation = this->findChild<QObject*>("moveAnimation");
 
+    if(this->opacity()==QVariant(1.0)) {
+        animation->setProperty("running",false);
+        this->setProperty("x", group->parent()->parent()->property("width"));
+        this->p_incrementedScore = false;
+
+        QString name = "isAvailable["+QString::number(p_index)+"]";
+        group->setProperty(name.toUtf8().constData(),true);
+    }
+}
 
 void Cloud::restore() {
     QObject *chargeBar = this->findChild<QObject*>("chargeBar");

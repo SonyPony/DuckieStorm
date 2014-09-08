@@ -21,6 +21,7 @@ class Cloud : public Obstacle
 
     public:
         explicit Cloud(QQuickItem *parent = 0);
+        Q_INVOKABLE void restart(QObject* group);
 
         /*-----Settery a gettery----*/
         int charge() const;
