@@ -129,7 +129,7 @@ Item {
             scoreDialog.hide()
         }
     }
-/**/
+
     onHide: SequentialAnimation {
         ScriptAction { script: scoreDialog.visible = false }
         NumberAnimation { target: scoreDialog; property: "y"; from: scoreDialog.y; to: root.height; duration: 800; easing.type: Easing.InOutCubic }
