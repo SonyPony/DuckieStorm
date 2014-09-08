@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import "../logic/generalLogic.js" as GL
+import "../logic/gameLogic.js" as GameLogic
 
 Item {
     id: scoreDialog
@@ -7,6 +8,7 @@ Item {
     //property alias retryButton: retryButton
     property bool highScore: false
     signal showUp()
+    signal hide()
 
     x: (root.width-frame.width)/2
     visible: false
@@ -101,6 +103,7 @@ Item {
         color: "black"
 
         anchors.bottom: frame.bottom
+        anchors.right: frame.right
         anchors.margins: 4*game.sizeOfPixel
 
         font.pixelSize: 4*game.sizeOfPixel
@@ -110,13 +113,30 @@ Item {
             propagateComposedEvents: true
             anchors.fill: parent
 
-            onClicked: console.log("click")
+            onClicked: {
+                game.restart()
+                rootMouseArea.enabled = true
+                game.score = 0
+                GameLogic.resume()
+            }
         }
     }
     /*-----------------------------------*/
 
+    Connections {
+        target: game
+        onRestart: {
+            scoreDialog.hide()
+        }
+    }
+
+    onHide: SequentialAnimation {
+        ScriptAction { script: scoreDialog.visible = false }
+        NumberAnimation { target: scoreDialog; property: "y"; from: scoreDialog.y; to: root.height; duration: 800; easing.type: Easing.InOutCubic }
+    }
+
     onShowUp: SequentialAnimation {
             ScriptAction { script: scoreDialog.visible = true }
-            NumberAnimation { target: scoreDialog; property: "y"; from: root.width; to: (root.height-frame.height)/2 - 4*game.sizeOfPixel; duration: 1500; easing.type: Easing.InOutCubic }
+            NumberAnimation { target: scoreDialog; property: "y"; from: root.height; to: (root.height-frame.height)/2 - 4*game.sizeOfPixel; duration: 800; easing.type: Easing.InOutCubic }
         }
 }

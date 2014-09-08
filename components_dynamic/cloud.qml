@@ -105,8 +105,18 @@ Cloud {
     }
     /*-----------------------------------*/
 
+    Connections {
+        target: game
+        onRestart: {
+            //singleCloud.restore()
+            Logic.restart()
+        }
+    }
+
+
     /*-------Animace pohybu dopředu------*/
     onStart:  SequentialAnimation {
+                    id: moveAnimation
                     objectName: "moveAnimation"
 
                     NumberAnimation { target: singleCloud; property: "x"; from: root.width; to: 0-cloudImage.width; duration: GL.toNumberOfPixels(root.width)*clouds.speed }

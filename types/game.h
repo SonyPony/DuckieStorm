@@ -53,6 +53,7 @@ class Game : public QQuickItem
         void firstChangeChanged();
         void pausedChanged();
         void highScoreChanged();
+        void restart();
 };
 
 #endif // GAME_H

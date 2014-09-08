@@ -5,4 +5,11 @@ Barrel::Barrel(QQuickItem *parent): Obstacle(parent) {
     p_incrementedScore = false;
 }
 
+/*void Barrel::restart() {
+    QObject *animation = this->findChild<QObject*>("moveAnimation");
+    QObject *image = this->findChild<QObject*>("image");
+
+
+}*/
+
 

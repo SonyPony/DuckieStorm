@@ -1,5 +1,14 @@
 .import "gameLogic.js" as GameLogic
 
+function restart() {
+    if(singleCloud.x<root.width && singleCloud.x+cloudImage.width>0) {
+        moveAnimation.stop()
+        singleCloud.x = root.width
+        singleCloud.incrementedScore = false
+        clouds.isAvailable[singleCloud.index] = true
+    }
+}
+
 /*|-----------------------------------------------------------------------------------
   |----------------------Inicializuje mraky a jejich vlastnosti-----------------------
   |----------------------------------------------------------------------------------*/

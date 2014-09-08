@@ -40,7 +40,3 @@ function end() {
     game.over = true
     scoreDialog.showUp()
 }
-
-function restart() {
-
-}

@@ -35,6 +35,15 @@ Barrel {   //jeden objekt barelu
 
     /*-----------------------------------*/
 
+    Connections {
+        target: game
+        onRestart: {
+            Logic.restart()
+        }
+    }
+
+
+
     /*-------Animace pohybu dopředu------*/
     onStart:  SequentialAnimation {
                     id: moveAnimation
