@@ -42,5 +42,5 @@ function end() {
     pause()
     rootMouseArea.enabled = false
     game.over = true
-    scoreDialog.showUp()
+    scoreDialog.show()
 }

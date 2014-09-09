@@ -7,7 +7,7 @@ Item {
 
     //property alias retryButton: retryButton
     property bool highScore: false
-    signal showUp()
+    signal show()
     signal hide()
 
     x: (root.width-frame.width)/2
@@ -131,11 +131,10 @@ Item {
     }
 
     onHide: SequentialAnimation {
-        ScriptAction { script: scoreDialog.visible = false }
         NumberAnimation { target: scoreDialog; property: "y"; from: scoreDialog.y; to: root.height; duration: 800; easing.type: Easing.InOutCubic }
     }
 
-    onShowUp: SequentialAnimation {
+    onShow: SequentialAnimation {
             ScriptAction { script: scoreDialog.visible = true }
             NumberAnimation { target: scoreDialog; property: "y"; from: root.height; to: (root.height-frame.height)/2 - 4*game.sizeOfPixel; duration: 800; easing.type: Easing.InOutCubic }
         }
