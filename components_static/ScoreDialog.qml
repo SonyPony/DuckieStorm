@@ -5,9 +5,8 @@ import "../logic/gameLogic.js" as GameLogic
 Item {
     id: scoreDialog
 
-    //property alias retryButton: retryButton
     property bool highScore: false
-    signal showUp()
+    signal show()
     signal hide()
 
     x: (root.width-frame.width)/2
@@ -117,25 +116,17 @@ Item {
                 game.restart()
                 rootMouseArea.enabled = true
                 game.score = 0
-                GameLogic.resume()
+                game.paused = false
             }
         }
     }
     /*-----------------------------------*/
 
-    Connections {
-        target: game
-        onRestart: {
-            scoreDialog.hide()
-        }
-    }
-
     onHide: SequentialAnimation {
-        ScriptAction { script: scoreDialog.visible = false }
         NumberAnimation { target: scoreDialog; property: "y"; from: scoreDialog.y; to: root.height; duration: 800; easing.type: Easing.InOutCubic }
     }
 
-    onShowUp: SequentialAnimation {
+    onShow: SequentialAnimation {
             ScriptAction { script: scoreDialog.visible = true }
             NumberAnimation { target: scoreDialog; property: "y"; from: root.height; to: (root.height-frame.height)/2 - 4*game.sizeOfPixel; duration: 800; easing.type: Easing.InOutCubic }
         }

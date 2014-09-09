@@ -2,6 +2,18 @@
 
 Duck::Duck(QQuickItem *parent): VisibleItem(parent) {
     p_imageURL = QUrl("../res/images/duckImage.svg");
+    p_canJump = true;
+}
+
+void Duck::handleGamePause() {
+    if(this->parent()->property("paused")==QVariant(true))
+        p_canJump = false;
+    else
+        p_canJump = true;
+}
+
+bool Duck::canJump() const {
+    return p_canJump;
 }
 
 int Duck::size() const {

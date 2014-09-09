@@ -107,10 +107,7 @@ Cloud {
 
     Connections {
         target: game
-        onRestart: {
-            //singleCloud.restore()
-            Logic.restart()
-        }
+        onRestart: singleCloud.restart(clouds)
     }
 
 
@@ -120,7 +117,7 @@ Cloud {
                     objectName: "moveAnimation"
 
                     NumberAnimation { target: singleCloud; property: "x"; from: root.width; to: 0-cloudImage.width; duration: GL.toNumberOfPixels(root.width)*clouds.speed }
-                    ScriptAction { script: (function() { clouds.isAvailable[index] = true;  })() }
+                    ScriptAction { script: (function() { clouds.isAvailable[index] = true; singleCloud.opacity = 0 })() }
     }
     /*-----------------------------------*/
 }

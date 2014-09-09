@@ -8,3 +8,4 @@ Trees::Trees(QQuickItem *parent): Obstacles(parent) {
 }
 
 
+

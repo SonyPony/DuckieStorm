@@ -30,6 +30,8 @@ class Game : public QQuickItem
     public:
         explicit Game(QQuickItem *parent = 0);
 
+        Q_INVOKABLE void end();
+
         /*-----Settery a gettery----*/
         bool over() const;
         int score() const;

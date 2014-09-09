@@ -1,10 +1,13 @@
 #include "cloud.h"
+#include <QTime>
 
 Cloud::Cloud(QQuickItem *parent): Obstacle(parent) {
     p_index = 0;
     p_incrementedScore = false;
     p_debt = 0;
     p_active = false;
+    p_minCharge = 1;
+    p_maxCharge = 2;
 
     this->setOpacity(0);
 
@@ -13,18 +16,44 @@ Cloud::Cloud(QQuickItem *parent): Obstacle(parent) {
     QObject::connect(this, SIGNAL(disappear()), this, SLOT(setActive()));
 }
 
+void Cloud::restart(QObject* group) {
+    QObject *animation = this->findChild<QObject*>("moveAnimation");
 
+    if(this->opacity()==QVariant(1.0)) {
+        animation->setProperty("running",false);
+        this->setProperty("x", group->parent()->parent()->property("width"));
+        this->p_incrementedScore = false;
+
+        QString name = "isAvailable["+QString::number(p_index)+"]";
+        group->setProperty(name.toUtf8().constData(),true);
+    }
+}
 
 void Cloud::restore() {
+    qsrand(QTime::currentTime().msec());
+
     QObject *chargeBar = this->findChild<QObject*>("chargeBar");
     QObject *image = this->findChild<QObject*>("image");
 
     chargeBar->setProperty("x", 0);
     chargeBar->setProperty("width", image->property("width"));
 
-    this->p_charge = 2;
+    this->p_fullCharge = rand()%(p_maxCharge-p_minCharge+1)+p_minCharge;
+    this->p_charge = this->fullCharge();
     this->p_debt = 0;
     this->setProperty("opacity", 1.0);
+}
+
+int Cloud::minCharge() const {
+    return p_minCharge;
+}
+
+int Cloud::maxCharge() const {
+    return p_maxCharge;
+}
+
+int Cloud::fullCharge() const {
+    return p_fullCharge;
 }
 
 bool Cloud::active() const {
@@ -47,6 +76,27 @@ void Cloud::setDebt(int& value) {
     if(value != p_debt) {
         p_debt = value;
         emit debtChanged();
+    }
+}
+
+void Cloud::setMinCharge(int &value) {
+    if(value != p_minCharge) {
+        p_minCharge = value;
+        emit minChargeChanged();
+    }
+}
+
+void Cloud::setMaxCharge(int &value) {
+    if(value != p_maxCharge) {
+        p_maxCharge = value;
+        emit maxChargeChanged();
+    }
+}
+
+void Cloud::setFullCharge(int &value) {
+    if(value != p_fullCharge) {
+        p_fullCharge = value;
+        emit fullChargeChanged();
     }
 }
 
