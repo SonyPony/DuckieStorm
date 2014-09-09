@@ -31,18 +31,12 @@ Barrel {   //jeden objekt barelu
         /*----------------------------*/
     }
 
-    Component.onCompleted: Logic.initOutlines()
-
-    /*-----------------------------------*/
-
-    Connections {
-        target: game
-        onRestart: {
-            Logic.restart()
-        }
+    Component.onCompleted: {
+        Logic.initOutlines()
+        game.restart.connect(Logic.restart)
     }
 
-
+    /*-----------------------------------*/
 
     /*-------Animace pohybu dopředu------*/
     onStart:  SequentialAnimation {

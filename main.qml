@@ -246,6 +246,8 @@ ApplicationWindow {
 
         Component.onCompleted: {
             game.onPausedChanged.connect(duck.handleGamePause)
+
+            game.restart.connect(scoreDialog.hide)
         }
     }
 

@@ -107,9 +107,7 @@ Cloud {
 
     Connections {
         target: game
-        onRestart: {
-            singleCloud.restart(clouds)
-        }
+        onRestart: singleCloud.restart(clouds)
     }
 
 
