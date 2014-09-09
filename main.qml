@@ -111,12 +111,16 @@ ApplicationWindow {
             image: graphics.duckImage
             property var outlines: DuckLogic.initOutlines()
             /*-----------------------*/
-            //Component.onCompleted: duck.setImage(graphics.duckImage)
+
+            /*Component.onCompleted: {
+                game.onPausedChanged.connect(duck.handleGamePause)
+            }*/
 
             /*--Animace skákání a posunování okrajů kachničky--*/
             onJump: SequentialAnimation {
                 id: jumpAnimation
 
+                ScriptAction { script: (function() { if(!duck.canJump) { jumpAnimation.stop() } }) }
                 ScriptAction { script: sounds.outWaterSound.play() }
                 NumberAnimation { target: duck.image; property: "y"; to: duck.image.y-duck.heightOfJump; duration: 500; easing.type: Easing.OutQuad }
                 NumberAnimation { target: duck.image; property: "y"; to: duck.image.y; duration: 500; easing.type: Easing.InQuad }
@@ -238,6 +242,10 @@ ApplicationWindow {
                 ScriptAction { script: BackgroundLogic.sendTree() }
                 onRunningChanged: treeGenerator.start()
             }
+        }
+
+        Component.onCompleted: {
+            game.onPausedChanged.connect(duck.handleGamePause)
         }
     }
 
