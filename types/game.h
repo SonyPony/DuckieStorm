@@ -31,7 +31,6 @@ class Game : public QQuickItem
         explicit Game(QQuickItem *parent = 0);
 
         Q_INVOKABLE void end();
-       // Q_INVOKABLE void pause();
 
         /*-----Settery a gettery----*/
         bool over() const;
@@ -48,9 +47,6 @@ class Game : public QQuickItem
         void setPaused(bool& value);
         void setHighScore(int& value);
         /*--------------------------*/
-
-   // private slots:
-     //   void end();
 
     signals:
         void overChanged();
