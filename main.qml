@@ -60,10 +60,15 @@ ApplicationWindow {
             id: graphics
             objectName: "graphics"
         }
-        ScoreDialog { id: scoreDialog }
+        ScoreDialog {
+            id: scoreDialog
+            objectName: "scoreDialog"
+        }
 
         FileStream {
             id: scoreFile
+            objectName: "scoreFile"
+
             source: "score.txt"
         }
 
@@ -112,9 +117,18 @@ ApplicationWindow {
             property var outlines: DuckLogic.initOutlines()
             /*-----------------------*/
 
-            /*Component.onCompleted: {
-                game.onPausedChanged.connect(duck.handleGamePause)
-            }*/
+            Connections {
+                target: game
+                onPausedChanged: {
+                    if(game.paused) {
+                        if(jumpAnimation.running)
+                            jumpAnimation.pause()
+                    }
+
+                    else
+                        jumpAnimation.resume()
+                }
+            }
 
             /*--Animace skákání a posunování okrajů kachničky--*/
             onJump: SequentialAnimation {
@@ -137,6 +151,25 @@ ApplicationWindow {
             objectName: "ball"
 
             image: graphics.ballImage
+
+            Connections {
+                target: game
+                onPausedChanged: {
+                    if(game.paused) {
+                        if(ball.image.visible)
+                            throwAnimation.pause()
+                        else
+                            ball.isAvailable = false
+                    }
+
+                    else {
+                        if(ball.image.visible)
+                            throwAnimation.resume()
+                        else
+                            ball.isAvailable = true
+                    }
+                }
+            }
 
             /*----------------Animace hodu míče----------------*/
             onUpdatePosition: SequentialAnimation {
@@ -166,6 +199,21 @@ ApplicationWindow {
                 BarrelLogic.initBarrels()
             }
 
+            Connections {
+                target: game
+                onPausedChanged: {
+                    if(game.paused) {
+                        barrels.pause()
+                        barrelGenerator.pause()
+                    }
+
+                    else {
+                        barrels.resume()
+                        barrelGenerator.resume()
+                    }
+                }
+            }
+
             SequentialAnimation {
                 id: barrelGenerator
                 running: true
@@ -191,6 +239,21 @@ ApplicationWindow {
 
             Component.onCompleted: {
                 CloudLogic.initClouds()
+            }
+
+            Connections {
+                target: game
+                onPausedChanged: {
+                    if(game.paused) {
+                        clouds.pause()
+                        cloudGenerator.pause()
+                    }
+
+                    else {
+                        clouds.resume()
+                        cloudGenerator.resume()
+                    }
+                }
             }
 
             SequentialAnimation {
@@ -280,7 +343,7 @@ ApplicationWindow {
                     duck.jump()
                     break;
                 case "slide down":
-                    (game.paused) ?GameLogic.resume() :GameLogic.pause()    //přidat button na pausu
+                    game.paused = (game.paused) ?false :true    //přidat button na pausu
                     break;
             }
         }
