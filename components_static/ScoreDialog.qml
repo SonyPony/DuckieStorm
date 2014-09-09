@@ -116,7 +116,7 @@ Item {
                 game.restart()
                 rootMouseArea.enabled = true
                 game.score = 0
-                GameLogic.resume()
+                game.paused = false
             }
         }
     }

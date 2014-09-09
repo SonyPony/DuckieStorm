@@ -322,6 +322,7 @@ ApplicationWindow {
 
     MouseArea {
         id: rootMouseArea
+        objectName: "rootMouseArea"
 
         anchors.fill: parent
 

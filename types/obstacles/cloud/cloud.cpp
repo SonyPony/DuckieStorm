@@ -40,7 +40,6 @@ void Cloud::restore() {
 
     this->p_fullCharge = rand()%(p_maxCharge-p_minCharge+1)+p_minCharge;
     this->p_charge = this->fullCharge();
-    qDebug()<<p_charge;
     this->p_debt = 0;
     this->setProperty("opacity", 1.0);
 }
