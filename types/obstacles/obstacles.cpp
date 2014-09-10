@@ -19,13 +19,23 @@ void Obstacles::handleGamePause() {
 void Obstacles::pause() {
     QVariantList *enable = new QVariantList;
     QObject* animation;
+    QObject* object;
+    QObject* dischargeAnimation;
 
     for(int i = 0;  i<p_maximumAmount; i++) {
         enable->append(false);
 
-        animation = qvariant_cast<QObject*>(this->property("objects").toList()[i])->findChild<QObject*>("moveAnimation");
+        object = qvariant_cast<QObject*>(this->property("objects").toList()[i]);
+        animation = object->findChild<QObject*>("moveAnimation");
         if(animation->property("running")==QVariant(true)) {
             QMetaObject::invokeMethod(animation, "pause");
+
+            if(object->objectName()=="singleCloud") {
+                dischargeAnimation = object->findChild<QObject*>("dischargeAnimationSound");
+
+                if(dischargeAnimation->property("running")==QVariant(true))
+                    QMetaObject::invokeMethod(dischargeAnimation, "pause");
+            }
         }
     }
 
@@ -38,13 +48,23 @@ void Obstacles::pause() {
 void Obstacles::resume() {
     QVariantList *enable = new QVariantList;
     QObject* animation;
+    QObject* object;
+    QObject* dischargeAnimation;
 
     for(int i = 0; i<p_maximumAmount; i++) {
-        animation = qvariant_cast<QObject*>(this->property("objects").toList()[i])->findChild<QObject*>("moveAnimation");
+        object = qvariant_cast<QObject*>(this->property("objects").toList()[i]);
+        animation = object->findChild<QObject*>("moveAnimation");
 
         if(animation->property("running")==QVariant(true)) {
             enable->append(false);
             QMetaObject::invokeMethod(animation,"resume");
+
+            if(object->objectName()=="singleCloud") {
+                dischargeAnimation = object->findChild<QObject*>("dischargeAnimationSound");
+
+                if(dischargeAnimation->property("running")==QVariant(true))
+                    QMetaObject::invokeMethod(dischargeAnimation, "resume");
+            }
         }
 
         else
