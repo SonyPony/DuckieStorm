@@ -115,7 +115,6 @@ Item {
             onClicked: {
                 game.restart()
                 rootMouseArea.enabled = true
-                game.score = 0
                 game.paused = false
             }
         }
@@ -124,6 +123,7 @@ Item {
 
     onHide: SequentialAnimation {
         NumberAnimation { target: scoreDialog; property: "y"; from: scoreDialog.y; to: root.height; duration: 800; easing.type: Easing.InOutCubic }
+        ScriptAction { script: game.score = 0 }
     }
 
     onShow: SequentialAnimation {
