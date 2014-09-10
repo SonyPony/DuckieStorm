@@ -180,23 +180,10 @@ ApplicationWindow {
                 BarrelLogic.initBarrels()
             }
 
-            Connections {
-                target: game
-                onPausedChanged: {
-                    if(game.paused) {
-                        barrels.pause()
-                        barrelGenerator.pause()
-                    }
-
-                    else {
-                        barrels.resume()
-                        barrelGenerator.resume()
-                    }
-                }
-            }
-
             SequentialAnimation {
                 id: barrelGenerator
+                objectName: "barrelGenerator"
+
                 running: true
 
                 NumberAnimation { id: barrelGeneratorDelay }
@@ -291,6 +278,7 @@ ApplicationWindow {
         Component.onCompleted: {
             game.onPausedChanged.connect(duck.handleGamePause)
             game.onPausedChanged.connect(ball.handleGamePause)
+            game.onPausedChanged.connect(barrels.handleGamePause)
 
             game.restart.connect(scoreDialog.hide)
         }

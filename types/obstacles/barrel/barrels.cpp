@@ -8,3 +8,17 @@ Barrels::Barrels(QQuickItem *parent): Obstacles(parent) {
     this->setImageURL(QUrl("../res/images/barrelImage.svg"));
 }
 
+void Barrels::handleGamePause() {
+    QObject *animation = this->findChild<QObject*>("barrelGenerator");
+
+    if(this->parent()->property("paused")==QVariant(true)) {
+        this->pause();
+        QMetaObject::invokeMethod(animation, "pause");
+    }
+
+    else {
+        this->resume();
+        QMetaObject::invokeMethod(animation, "resume");
+    }
+}
+

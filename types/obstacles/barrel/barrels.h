@@ -10,6 +10,9 @@ class Barrels : public Obstacles
 
     public:
         explicit Barrels(QQuickItem *parent = 0);
+
+    public slots:
+        Q_INVOKABLE void handleGamePause();
 };
 
 #endif // BARRELS_H
