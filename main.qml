@@ -152,25 +152,6 @@ ApplicationWindow {
 
             image: graphics.ballImage
 
-            Connections {
-                target: game
-                onPausedChanged: {
-                    if(game.paused) {
-                        if(ball.image.visible)
-                            throwAnimation.pause()
-                        else
-                            ball.isAvailable = false
-                    }
-
-                    else {
-                        if(ball.image.visible)
-                            throwAnimation.resume()
-                        else
-                            ball.isAvailable = true
-                    }
-                }
-            }
-
             /*----------------Animace hodu míče----------------*/
             onUpdatePosition: SequentialAnimation {
                 id: throwAnimation
@@ -199,23 +180,10 @@ ApplicationWindow {
                 BarrelLogic.initBarrels()
             }
 
-            Connections {
-                target: game
-                onPausedChanged: {
-                    if(game.paused) {
-                        barrels.pause()
-                        barrelGenerator.pause()
-                    }
-
-                    else {
-                        barrels.resume()
-                        barrelGenerator.resume()
-                    }
-                }
-            }
-
             SequentialAnimation {
                 id: barrelGenerator
+                objectName: "generator"
+
                 running: true
 
                 NumberAnimation { id: barrelGeneratorDelay }
@@ -241,23 +209,10 @@ ApplicationWindow {
                 CloudLogic.initClouds()
             }
 
-            Connections {
-                target: game
-                onPausedChanged: {
-                    if(game.paused) {
-                        clouds.pause()
-                        cloudGenerator.pause()
-                    }
-
-                    else {
-                        clouds.resume()
-                        cloudGenerator.resume()
-                    }
-                }
-            }
-
             SequentialAnimation {
                 id: cloudGenerator
+                objectName: "generator"
+
                 running: true
 
                 NumberAnimation { id: cloudGeneratorDelay }
@@ -278,27 +233,14 @@ ApplicationWindow {
             property var isAvailable: new Array
             /*--------------------------*/
 
-            Connections {
-                target: game
-                onPausedChanged: {
-                    if(game.paused) {
-                        trees.pause()
-                        treeGenerator.pause()
-                    }
-
-                    else {
-                        trees.resume()
-                        treeGenerator.resume()
-                    }
-                }
-            }
-
             Component.onCompleted: {
                 BackgroundLogic.initTrees()
             }
 
             SequentialAnimation {
                 id: treeGenerator
+                objectName: "generator"
+
                 running: true
 
                 NumberAnimation { id: treeGeneratorDelay }
@@ -309,6 +251,10 @@ ApplicationWindow {
 
         Component.onCompleted: {
             game.onPausedChanged.connect(duck.handleGamePause)
+            game.onPausedChanged.connect(ball.handleGamePause)
+            game.onPausedChanged.connect(barrels.handleGamePause)
+            game.onPausedChanged.connect(clouds.handleGamePause)
+            game.onPausedChanged.connect(trees.handleGamePause)
 
             game.restart.connect(scoreDialog.hide)
         }

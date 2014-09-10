@@ -39,6 +39,9 @@ class Obstacles : public VisibleItem
         void setSpeed(qreal& value);
         /*--------------------------*/
 
+    public slots:
+        virtual void handleGamePause();
+
     signals:
         void speedChanged();
 };

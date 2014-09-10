@@ -6,6 +6,7 @@ import "../logic/cloudLogic.js" as Logic
 
 Cloud {
     id: singleCloud
+    objectName: "singleCloud"
 
     chargePiece: cloudImage.width/(2)
 
@@ -82,6 +83,8 @@ Cloud {
 
     /*------Pořešení ubrání života-------*/
     onChargeChanged: SequentialAnimation {
+                    objectName: "dischargeAnimationSound"
+
                     ScriptAction { script: sounds.lightingSound.play() }
 
                     ParallelAnimation {
@@ -109,7 +112,6 @@ Cloud {
         target: game
         onRestart: singleCloud.restart(clouds)
     }
-
 
     /*-------Animace pohybu dopředu------*/
     onStart:  SequentialAnimation {

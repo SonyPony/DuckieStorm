@@ -9,7 +9,25 @@ Ball::Ball(QQuickItem *parent): VisibleItem(parent) {
     this->setProperty("imageURL", "../res/images/ballImage.svg");
 }
 
+void Ball::handleGamePause() {
+    QObject* animation  = this->findChild<QObject*>("throwAnimation");
 
+    if(this->parent()->property("paused")==QVariant(true)) {
+        if(p_image->property("visible")==QVariant(true))
+            QMetaObject::invokeMethod(animation, "pause");
+
+        else
+            p_isAvailable = false;
+    }
+
+    else {
+        if(p_image->property("visible")==QVariant(true))
+            QMetaObject::invokeMethod(animation, "resume");
+
+        else
+            p_isAvailable = true;
+    }
+}
 
 void Ball::updateBallPosition() {
     /*------------------Vyhledání objektů------------------*/

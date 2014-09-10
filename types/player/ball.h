@@ -50,6 +50,9 @@ class Ball : public VisibleItem
         void setStepsOfThrow(int& value);
         /*--------------------------*/
 
+    public slots:
+        virtual void handleGamePause();
+
     signals:
         void updatePosition();
 

@@ -11,11 +11,11 @@ class Duck : public VisibleItem
 
     Q_PROPERTY(int horizontalCenterWhenThrowsBall READ horizontalCenterWhenThrowsBall WRITE setHorizontalCenterWhenThrowsBall NOTIFY horizontalCenterWhenThrowsBallChanged)
     Q_PROPERTY(int verticalCenterWhenThrowsBall READ verticalCenterWhenThrowsBall WRITE setVerticalCenterWhenThrowsBall NOTIFY verticalCenterWhenThrowsBallChanged)
+    Q_PROPERTY(bool canJump READ canJump CONSTANT)
     Q_PROPERTY(int size READ size WRITE setSize NOTIFY sizeChanged)
     Q_PROPERTY(int heightOfJump READ heightOfJump WRITE setHeightOfJump NOTIFY heightOfJumpChanged)
     Q_PROPERTY(int defaultX READ defaultX WRITE setDefaultX NOTIFY defaultXChanged)
     Q_PROPERTY(int defaultY READ defaultY WRITE setDefaultY NOTIFY defaultYChanged)
-    Q_PROPERTY(bool canJump READ canJump CONSTANT)
 
     private:
         /*---Vlasnosti kachničky---*/
@@ -56,7 +56,7 @@ class Duck : public VisibleItem
         /*--------------------------*/
 
     public slots:
-        Q_INVOKABLE void handleGamePause();
+        virtual void handleGamePause();
 
     signals:
         void jump();
