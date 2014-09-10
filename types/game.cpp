@@ -15,7 +15,7 @@ void Game::end() {
         FileStream *file = this->findChild<FileStream*>("scoreFile");
         file->write(QString::number(p_score));
         scoreDialog->setProperty("highScore", true);
-        this->setHighScore(p_score);
+        this->p_highScore = p_score;
     }
 
     else
