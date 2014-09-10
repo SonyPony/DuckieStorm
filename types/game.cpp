@@ -4,7 +4,6 @@
 Game::Game(QQuickItem *parent): QQuickItem(parent) {
     p_over = false;
     p_score = 0;
-    p_firstChange = false;
     p_paused = false;
 }
 
@@ -44,10 +43,6 @@ int Game::sizeOfPixel() const {
     return p_sizeOfPixel;
 }
 
-bool Game::firstChange() const {
-    return p_firstChange;
-}
-
 bool Game::paused() const {
     return p_paused;
 }
@@ -77,13 +72,6 @@ void Game::setSizeOfPixel(int& value) {
     if(value != p_sizeOfPixel) {
         p_sizeOfPixel = value;
         emit sizeOfPixelChanged();
-    }
-}
-
-void Game::setFirstChange(bool& value) {
-    if(value != p_firstChange) {
-        p_firstChange = value;
-        emit firstChangeChanged();
     }
 }
 
