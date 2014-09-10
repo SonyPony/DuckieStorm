@@ -152,25 +152,6 @@ ApplicationWindow {
 
             image: graphics.ballImage
 
-            Connections {
-                target: game
-                onPausedChanged: {
-                    if(game.paused) {
-                        if(ball.image.visible)
-                            throwAnimation.pause()
-                        else
-                            ball.isAvailable = false
-                    }
-
-                    else {
-                        if(ball.image.visible)
-                            throwAnimation.resume()
-                        else
-                            ball.isAvailable = true
-                    }
-                }
-            }
-
             /*----------------Animace hodu míče----------------*/
             onUpdatePosition: SequentialAnimation {
                 id: throwAnimation
@@ -309,6 +290,7 @@ ApplicationWindow {
 
         Component.onCompleted: {
             game.onPausedChanged.connect(duck.handleGamePause)
+            game.onPausedChanged.connect(ball.handleGamePause)
 
             game.restart.connect(scoreDialog.hide)
         }
