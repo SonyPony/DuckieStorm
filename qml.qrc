@@ -32,5 +32,6 @@
         <file>res/images/duckImage.svg</file>
         <file>res/images/lightingImage.svg</file>
         <file>res/images/scoredialog_frame.svg</file>
+        <file>res/images/scoredialog_FBButton.svg</file>
     </qresource>
 </RCC>

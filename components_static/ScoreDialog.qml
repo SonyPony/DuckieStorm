@@ -121,6 +121,31 @@ Item {
     }
     /*-----------------------------------*/
 
+    /*-----------Tlačítko na FB----------*/
+    Image {
+        id: facebookButton
+
+        source: "../res/images/scoredialog_FBButton.svg"
+        width: 4.5*game.sizeOfPixel
+        height: width
+
+        anchors.left: frame.left
+        anchors.bottom: frame.bottom
+        anchors.margins: 5*game.sizeOfPixel
+
+        /*----Renderovací velikost----*/
+        sourceSize.width: 900
+        sourceSize.height: 900
+        /*----------------------------*/
+
+        MouseArea {
+            anchors.fill: parent
+
+            onClicked: Qt.openUrlExternally("https://www.facebook.com/groups/301547260027606/")
+        }
+    }
+    /*-----------------------------------*/
+
     onHide: SequentialAnimation {
         NumberAnimation { target: scoreDialog; property: "y"; from: scoreDialog.y; to: root.height; duration: 800; easing.type: Easing.InOutCubic }
         ScriptAction { script: game.score = 0 }
