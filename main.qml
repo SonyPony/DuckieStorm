@@ -182,7 +182,7 @@ ApplicationWindow {
 
             SequentialAnimation {
                 id: barrelGenerator
-                objectName: "barrelGenerator"
+                objectName: "generator"
 
                 running: true
 
@@ -211,7 +211,7 @@ ApplicationWindow {
 
             SequentialAnimation {
                 id: cloudGenerator
-                objectName: "cloudGenerator"
+                objectName: "generator"
 
                 running: true
 
@@ -233,27 +233,14 @@ ApplicationWindow {
             property var isAvailable: new Array
             /*--------------------------*/
 
-            Connections {
-                target: game
-                onPausedChanged: {
-                    if(game.paused) {
-                        trees.pause()
-                        treeGenerator.pause()
-                    }
-
-                    else {
-                        trees.resume()
-                        treeGenerator.resume()
-                    }
-                }
-            }
-
             Component.onCompleted: {
                 BackgroundLogic.initTrees()
             }
 
             SequentialAnimation {
                 id: treeGenerator
+                objectName: "generator"
+
                 running: true
 
                 NumberAnimation { id: treeGeneratorDelay }
@@ -267,6 +254,7 @@ ApplicationWindow {
             game.onPausedChanged.connect(ball.handleGamePause)
             game.onPausedChanged.connect(barrels.handleGamePause)
             game.onPausedChanged.connect(clouds.handleGamePause)
+            game.onPausedChanged.connect(trees.handleGamePause)
 
             game.restart.connect(scoreDialog.hide)
         }

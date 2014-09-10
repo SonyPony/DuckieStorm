@@ -2,6 +2,20 @@
 
 Obstacles::Obstacles(QQuickItem *parent): VisibleItem(parent) {}
 
+void Obstacles::handleGamePause() {
+    QObject *animation = this->findChild<QObject*>("generator");
+
+    if(this->parent()->property("paused")==QVariant(true)) {
+        this->pause();
+        QMetaObject::invokeMethod(animation, "pause");
+    }
+
+    else {
+        this->resume();
+        QMetaObject::invokeMethod(animation, "resume");
+    }
+}
+
 void Obstacles::pause() {
     QVariantList *enable = new QVariantList;
     QObject* animation;

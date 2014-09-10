@@ -8,20 +8,6 @@ Clouds::Clouds(QQuickItem *parent): Obstacles(parent) {
     this->setImageURL(QUrl("../res/images/cloudImage.svg"));
 }
 
-void Clouds::handleGamePause() {
-    QObject *animation = this->findChild<QObject*>("cloudGenerator");
-
-    if(this->parent()->property("paused")==QVariant(true)) {
-        this->pause();
-        QMetaObject::invokeMethod(animation, "pause");
-    }
-
-    else {
-        this->resume();
-        QMetaObject::invokeMethod(animation, "resume");
-    }
-}
-
 int Clouds::minCharge() const {
     return p_minCharge;
 }

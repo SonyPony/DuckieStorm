@@ -51,7 +51,7 @@ class Ball : public VisibleItem
         /*--------------------------*/
 
     public slots:
-        Q_INVOKABLE void handleGamePause();
+        virtual void handleGamePause();
 
     signals:
         void updatePosition();

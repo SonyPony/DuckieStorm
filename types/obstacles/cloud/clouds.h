@@ -22,8 +22,6 @@ class Clouds : public Obstacles
         int minCharge() const;
         int maxCharge() const;
         /*--------------------------*/
-    public slots:
-        Q_INVOKABLE void handleGamePause();
 };
 
 #endif // CLOUDS_H

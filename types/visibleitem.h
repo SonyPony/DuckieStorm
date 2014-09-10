@@ -24,6 +24,10 @@ class VisibleItem : public QQuickItem
         void setImage(QObject *value);
         void setImageURL(QUrl value);
         /*--------------------------*/
+
+    public slots:
+        virtual void handleGamePause() = 0;
+
     signals:
         void literaly_nothing(); //jenom kvůli divnému expandování kódu
         void imageChanged();
