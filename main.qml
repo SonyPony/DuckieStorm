@@ -81,12 +81,9 @@ ApplicationWindow {
             graphics.scoreText.text = game.score
         }
 
-        onSizeOfPixelChanged: { //toto proběhne hned na začátku u Androidu
-            if(firstChange) {
+        onSizeOfPixelChanged: {
                 DuckLogic.updateOutlines()
                 BarrelLogic.updateOutlines()
-            }
-            firstChange = true
         }
 
         onOverChanged: {

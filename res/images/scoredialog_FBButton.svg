@@ -1,0 +1,7 @@
+<svg width="9" height="9">
+	<rect x="0" y="0" z="0" width="9" height="9" style="fill:rgb(0, 92, 185)"/>
+	
+	<rect x="5" y="1" z="1" width="2" height="1" style="fill:rgb(255, 255, 255)"/>
+	<rect x="4" y="2" z="1" width="1" height="6" style="fill:rgb(255, 255, 255)"/>
+	<rect x="3" y="4" z="1" width="3" height="1" style="fill:rgb(255, 255, 255)"/>
+</svg>
