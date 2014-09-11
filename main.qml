@@ -276,7 +276,7 @@ ApplicationWindow {
         onReleased: {
             root.mousePressed = false;
 
-            if(Gestures.checkClick(root.touchX, root.touchY, mouse.x, mouse.y, 20)) //pokud byl proveden klik hodí kachnička míčem
+            if(Gestures.checkClick(root.touchX, root.touchY, mouse.x, mouse.y, 10)) //pokud byl proveden klik hodí kachnička míčem
                 ball.calculateInfo(mouse.x, mouse.y);
         }
 
