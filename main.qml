@@ -14,7 +14,6 @@ import "logic/duckLogic.js" as DuckLogic
 import "logic/barrelLogic.js" as BarrelLogic
 import "logic/cloudLogic.js" as CloudLogic
 import "logic/backgroundLogic.js" as BackgroundLogic
-import "logic/gameLogic.js" as GameLogic
 import "logic/generalLogic.js" as GL
 
 import "logic/gestures.js" as Gestures
@@ -39,7 +38,7 @@ ApplicationWindow {
 
     onVisibilityChanged: {
         if(visibility==3)   //možná ještě 0
-            GameLogic.pause()
+            game.paused = true
         console.log(visibility + "------------------------------------------------------------------------")
     }
 

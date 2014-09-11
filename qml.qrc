@@ -10,7 +10,6 @@
         <file>logic/generalLogic.js</file>
         <file>logic/cloudLogic.js</file>
         <file>logic/backgroundLogic.js</file>
-        <file>logic/gameLogic.js</file>
         <file>res/sounds/scoreSound.wav</file>
         <file>res/sounds/lightingSound.wav</file>
         <file>res/sounds/outFromWaterSound.wav</file>

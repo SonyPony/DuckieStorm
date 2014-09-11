@@ -1,6 +1,5 @@
 import QtQuick 2.0
 import "../logic/generalLogic.js" as GL
-import "../logic/gameLogic.js" as GameLogic
 
 Item {
     id: scoreDialog
