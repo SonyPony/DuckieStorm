@@ -9,6 +9,8 @@ Cloud {
     objectName: "singleCloud"
 
     chargePiece: cloudImage.width/(2)
+    minCharge: (game.score>10) ?2 :1
+    maxCharge: (game.score>10) ?3 :2
 
     /*----Vyrenderovaný obrázek blesku----*/
     Image {
