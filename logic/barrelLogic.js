@@ -1,14 +1,5 @@
 .import "../res/shapes.js" as Shapes
 
-function restart() {
-    if(barrelImage.x<root.width && barrelImage.x+barrelImage.width>0) {
-        moveAnimation.stop()
-        barrelImage.x = root.width
-        singleBarrel.incrementedScore = false
-        barrels.isAvailable[singleBarrel.index] = true
-    }
-}
-
 /*|-----------------------------------------------------------------------------------
   |----------------------Inicializuje barely a jejich vlastnosti----------------------
   |----------------------------------------------------------------------------------*/

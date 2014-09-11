@@ -33,7 +33,11 @@ Barrel {   //jeden objekt barelu
 
     Component.onCompleted: {
         Logic.initOutlines()
-        game.restart.connect(Logic.restart)
+    }
+
+    Connections {
+        target: game
+        onRestart: singleBarrel.restart(barrels)
     }
 
     /*-----------------------------------*/

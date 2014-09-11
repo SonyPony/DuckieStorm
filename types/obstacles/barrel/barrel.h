@@ -11,7 +11,7 @@ class Barrel : public Obstacle
     public:
         explicit Barrel(QQuickItem *parent = 0);
 
-        //Q_INVOKABLE void restart();
+        Q_INVOKABLE void restart(QObject* group);
 };
 
 #endif // BARREL_H
