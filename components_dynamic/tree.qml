@@ -24,7 +24,7 @@ Tree {
     onStart:  SequentialAnimation {
                     objectName: "moveAnimation"
 
-                    NumberAnimation { target: singleTree; property: "x"; from: root.width; to: 0-image.width; duration: GL.duration(791, 382, 10000) }
+                    NumberAnimation { target: singleTree; property: "x"; from: root.width; to: 0-image.width; duration: GL.toNumberOfPixels(root.width+image.width)*trees.speed }
                     ScriptAction { script: (function() { trees.isAvailable[index] = true; singleTree.visible = false })() }
     }
     /*-----------------------------------*/
