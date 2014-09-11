@@ -24,11 +24,16 @@ class Obstacles : public VisibleItem
         int p_speed;
         /*-----------------------*/
 
+        /*--------Metody---------*/
+        void pause();
+        void resume();
+        /*-----------------------*/
+
     public:
         explicit Obstacles(QQuickItem *parent = 0);
 
-        Q_INVOKABLE void pause();
-        Q_INVOKABLE void resume();
+        //Q_INVOKABLE void pause();
+        //Q_INVOKABLE void resume();
 
         /*---------Gettery----------*/
         int spawnTimeLowLimit() const;
