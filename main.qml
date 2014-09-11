@@ -49,21 +49,38 @@ ApplicationWindow {
     Game {
         id: game
 
+        /*---------------------------------*/
+        /*--------------Font---------------*/
+        /*---------------------------------*/
         FontLoader {
             id: pixelFont
             source: "res/fonts/Fleftex_M.ttf"
         }
 
+        /*---------------------------------*/
+        /*--------------Zvuky--------------*/
+        /*---------------------------------*/
         Sounds { id: sounds }
+
+        /*---------------------------------*/
+        /*--------Container grafiky--------*/
+        /*---------------------------------*/
         Graphics {
             id: graphics
             objectName: "graphics"
         }
+
+        /*---------------------------------*/
+        /*---------Game Over dialog--------*/
+        /*---------------------------------*/
         ScoreDialog {
             id: scoreDialog
             objectName: "scoreDialog"
         }
 
+        /*---------------------------------*/
+        /*--------Soubor high score--------*/
+        /*---------------------------------*/
         FileStream {
             id: scoreFile
             objectName: "scoreFile"
