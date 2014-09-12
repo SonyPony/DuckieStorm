@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Cloud 1.0
+import DischargeArea 1.0
 
 import "../logic/generalLogic.js" as GL
 import "../logic/cloudLogic.js" as Logic
@@ -54,16 +55,20 @@ Cloud {
     /*-----------------------------------*/
 
     /*--Oblast kam se má trefovat míčem--*/
-    Rectangle {
+    DischargeArea {
         id: dischargeArea
 
+        y: cloudImage.y+20+ cloudImage.height
+
         color: "yellow"
-        opacity: 0.1
+        sizeOfPixel: game.sizeOfPixel
+
         width: root.width*GL.fraction(150, 854)  //změnit
         height: root.height*GL.fraction(80,480)  //změnit
-        y: cloudImage.y+20+ cloudImage.height
+
         anchors.horizontalCenter: cloudImage.horizontalCenter
     }
+
     /*-----------------------------------*/
 
     /*-------Ukazatel životů mraku-------*/

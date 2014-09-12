@@ -17,7 +17,8 @@ SOURCES += main.cpp \
     types/background/tree.cpp \
     types/visibleitem.cpp \
     types/fileIO/filestream.cpp \
-    dialogs/gameOverDialog/scoredialog.cpp
+    dialogs/gameOverDialog/scoredialog.cpp \
+    types/obstacles/cloud/dischargearea/dischargearea.cpp
 
 RESOURCES += qml.qrc
 
@@ -47,5 +48,6 @@ HEADERS += \
     types/background/tree.h \
     types/visibleitem.h \
     types/fileIO/filestream.h \
-    dialogs/gameOverDialog/scoredialog.h
+    dialogs/gameOverDialog/scoredialog.h \
+    types/obstacles/cloud/dischargearea/dischargearea.h
 
