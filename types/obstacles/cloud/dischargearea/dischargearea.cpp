@@ -1,7 +1,14 @@
 #include "dischargearea.h"
+#include <QTime>
 
 DischargeArea::DischargeArea(QQuickItem *parent): QQuickPaintedItem(parent) {
+}
 
+void DischargeArea::setRandomSize() {
+    qsrand(QTime::currentTime().msec());
+
+    this->setWidth(rand()%(p_maxWidth-p_minWidth+1)+p_minWidth);
+    this->setHeight(rand()%(p_maxHeight-p_minHeight+1)+p_minHeight);
 }
 
 void DischargeArea::paint(QPainter *painter) {
@@ -39,6 +46,22 @@ int DischargeArea::sizeOfPixel() const {
     return p_sizeOfPixel;
 }
 
+int DischargeArea::minWidth() const {
+    return p_minWidth;
+}
+
+int DischargeArea::maxWidth() const {
+    return p_maxWidth;
+}
+
+int DischargeArea::minHeight() const {
+    return p_minHeight;
+}
+
+int DischargeArea::maxHeight() const {
+    return p_maxHeight;
+}
+
 void DischargeArea::setColor(QColor &value) {
     if(value != p_color) {
         p_color = value;
@@ -50,5 +73,33 @@ void DischargeArea::setSizeOfPixel(int &value) {
     if(value != p_sizeOfPixel) {
         p_sizeOfPixel = value;
         emit sizeOfPixelChanged();
+    }
+}
+
+void DischargeArea::setMinWidth(int &value) {
+    if(value != p_minWidth) {
+        p_minWidth = value;
+        emit minWidthChanged();
+    }
+}
+
+void DischargeArea::setMaxWidth(int &value) {
+    if(value != p_maxWidth) {
+        p_maxWidth = value;
+        emit maxWidthChanged();
+    }
+}
+
+void DischargeArea::setMinHeight(int &value) {
+    if(value != p_minHeight) {
+        p_minHeight = value;
+        emit minHeightChanged();
+    }
+}
+
+void DischargeArea::setMaxHeight(int &value) {
+    if(value != p_maxHeight) {
+        p_maxHeight = value;
+        emit maxHeightChanged();
     }
 }
