@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Cloud 1.0
+import DischargeArea 1.0
 
 import "../logic/generalLogic.js" as GL
 import "../logic/cloudLogic.js" as Logic
@@ -8,7 +9,9 @@ Cloud {
     id: singleCloud
     objectName: "singleCloud"
 
-    chargePiece: cloudImage.width/(2)
+    chargePiece: cloudImage.width/fullCharge
+    minCharge: (game.score>10) ?2 :1
+    maxCharge: (game.score>10) ?3 :2
 
     /*----Vyrenderovaný obrázek blesku----*/
     Image {
@@ -52,16 +55,34 @@ Cloud {
     /*-----------------------------------*/
 
     /*--Oblast kam se má trefovat míčem--*/
-    Rectangle {
+    DischargeArea {
         id: dischargeArea
+        objectName: "dischargeArea"
+
+        y: cloudImage.y+20+ cloudImage.height
 
         color: "yellow"
-        opacity: 0.1
+        sizeOfPixel: game.sizeOfPixel
+
         width: root.width*GL.fraction(150, 854)  //změnit
         height: root.height*GL.fraction(80,480)  //změnit
-        y: cloudImage.y+20+ cloudImage.height
+
+        minWidth: 5*game.sizeOfPixel+((game.score<=20) ?Math.abs(game.score-20)*game.sizeOfPixel :0)
+        maxWidth: cloudImage.width-((game.score<=20) ?game.score*game.sizeOfPixel :20*game.sizeOfPixel)
+        minHeight: 5*game.sizeOfPixel+((game.score<=12) ?Math.abs(game.score-12)*game.sizeOfPixel :0)
+        maxHeight: cloudImage.height-((game.score<=12) ?game.score*game.sizeOfPixel :12*game.sizeOfPixel)
+
         anchors.horizontalCenter: cloudImage.horizontalCenter
+
+        Behavior on width {
+            NumberAnimation { duration: 800; easing.type: Easing.OutCubic }
+        }
+
+        Behavior on height {
+            NumberAnimation { duration: 400; easing.type: Easing.OutCubic }
+        }
     }
+
     /*-----------------------------------*/
 
     /*-------Ukazatel životů mraku-------*/
@@ -83,10 +104,11 @@ Cloud {
 
     /*------Pořešení ubrání života-------*/
     onChargeChanged: SequentialAnimation {
+                    id: dischargeAnimationSound
                     objectName: "dischargeAnimationSound"
 
                     ScriptAction { script: sounds.lightingSound.play() }
-
+                    ScriptAction { script: (function() { dischargeArea.width = dischargeArea.width-((dischargeArea.width/game.sizeOfPixel>=7) ?3*game.sizeOfPixel :0); dischargeArea.height = dischargeArea.height-((dischargeArea.height/game.sizeOfPixel>=7) ?3*game.sizeOfPixel :0) })() }
                     ParallelAnimation {
                         id: dischargeAnimation
 
@@ -97,12 +119,12 @@ Cloud {
                             PropertyAnimation { target: lightingImage; property: "visible"; to: true; duration: 150 }
                             PropertyAnimation { target: lightingImage; property: "visible"; to: false; duration: 150 }
                         }
+                    }
 
-                        onRunningChanged: { //restart animace, pokud to handler nestihl
-                            if(debt>0 && !dischargeAnimation.running) {
-                                debt--;
-                                dischargeAnimation.running = true;
-                            }
+                    onRunningChanged: { //restart animace, pokud to handler nestihl
+                        if(debt>0 && !dischargeAnimationSound.running) {
+                            debt--;
+                            dischargeAnimationSound.running = true;
                         }
                     }
     }
@@ -118,7 +140,7 @@ Cloud {
                     id: moveAnimation
                     objectName: "moveAnimation"
 
-                    NumberAnimation { target: singleCloud; property: "x"; from: root.width; to: 0-cloudImage.width; duration: GL.toNumberOfPixels(root.width)*clouds.speed }
+                    NumberAnimation { target: singleCloud; property: "x"; from: root.width; to: 0-cloudImage.width; duration: GL.toNumberOfPixels(root.width+cloudImage.width)*clouds.speed }
                     ScriptAction { script: (function() { clouds.isAvailable[index] = true; singleCloud.opacity = 0 })() }
     }
     /*-----------------------------------*/

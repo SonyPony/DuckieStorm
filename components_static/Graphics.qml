@@ -154,7 +154,7 @@ Item {
                 onPausedChanged: { (game.paused) ?moveAnimation.pause() :moveAnimation.resume() }
             }
 
-            NumberAnimation { id: moveAnimation; target: image; property: "x"; running: true; loops: Animation.Infinite; from: image.x; to: image.x-width; duration: GL.duration(854, 480, 58); }
+            NumberAnimation { id: moveAnimation; target: image; property: "x"; running: true; loops: Animation.Infinite; from: image.x; to: image.x-width; duration: 29*GL.toNumberOfPixels(image.width) }
         }
     }
     /*-----------------------------------*/

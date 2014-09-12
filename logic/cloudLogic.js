@@ -41,7 +41,7 @@ function checkDischarge_and_Collision() {       //------------------------------
         /*------------------------*/
 
         /*--Ubrání náboje mraku---*/
-        if(dischargeAnimation.running)
+        if(dischargeAnimationSound.running)
             debt++;
 
         singleCloud.charge = (singleCloud.charge-1 > 0) ?singleCloud.charge-1 :0;

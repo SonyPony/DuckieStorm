@@ -33,7 +33,11 @@ Barrel {   //jeden objekt barelu
 
     Component.onCompleted: {
         Logic.initOutlines()
-        game.restart.connect(Logic.restart)
+    }
+
+    Connections {
+        target: game
+        onRestart: singleBarrel.restart(barrels)
     }
 
     /*-----------------------------------*/
@@ -44,7 +48,7 @@ Barrel {   //jeden objekt barelu
                     objectName: "moveAnimation"
 
                     ScriptAction { script: (function() { barrelImage.visible = true; singleBarrel.incrementedScore = false })() }
-                    NumberAnimation { target: barrelImage; property: "x"; from: root.width; to: 0-barrelImage.width; duration: GL.toNumberOfPixels(root.width)*barrels.speed }
+                    NumberAnimation { target: barrelImage; property: "x"; from: root.width; to: 0-barrelImage.width; duration: GL.toNumberOfPixels(root.width+barrelImage.width)*barrels.speed }
                     ScriptAction { script: (function() { barrels.isAvailable[index] = true; barrelImage.visible = false})() }
     }
     /*-----------------------------------*/

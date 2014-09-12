@@ -14,7 +14,6 @@ import "logic/duckLogic.js" as DuckLogic
 import "logic/barrelLogic.js" as BarrelLogic
 import "logic/cloudLogic.js" as CloudLogic
 import "logic/backgroundLogic.js" as BackgroundLogic
-import "logic/gameLogic.js" as GameLogic
 import "logic/generalLogic.js" as GL
 
 import "logic/gestures.js" as Gestures
@@ -39,7 +38,7 @@ ApplicationWindow {
 
     onVisibilityChanged: {
         if(visibility==3)   //možná ještě 0
-            GameLogic.pause()
+            game.paused = true
         console.log(visibility + "------------------------------------------------------------------------")
     }
 
@@ -50,21 +49,38 @@ ApplicationWindow {
     Game {
         id: game
 
+        /*---------------------------------*/
+        /*--------------Font---------------*/
+        /*---------------------------------*/
         FontLoader {
             id: pixelFont
             source: "res/fonts/Fleftex_M.ttf"
         }
 
+        /*---------------------------------*/
+        /*--------------Zvuky--------------*/
+        /*---------------------------------*/
         Sounds { id: sounds }
+
+        /*---------------------------------*/
+        /*--------Container grafiky--------*/
+        /*---------------------------------*/
         Graphics {
             id: graphics
             objectName: "graphics"
         }
+
+        /*---------------------------------*/
+        /*---------Game Over dialog--------*/
+        /*---------------------------------*/
         ScoreDialog {
             id: scoreDialog
             objectName: "scoreDialog"
         }
 
+        /*---------------------------------*/
+        /*--------Soubor high score--------*/
+        /*---------------------------------*/
         FileStream {
             id: scoreFile
             objectName: "scoreFile"
@@ -277,7 +293,7 @@ ApplicationWindow {
         onReleased: {
             root.mousePressed = false;
 
-            if(Gestures.checkClick(root.touchX, root.touchY, mouse.x, mouse.y, 20)) //pokud byl proveden klik hodí kachnička míčem
+            if(Gestures.checkClick(root.touchX, root.touchY, mouse.x, mouse.y, 10)) //pokud byl proveden klik hodí kachnička míčem
                 ball.calculateInfo(mouse.x, mouse.y);
         }
 

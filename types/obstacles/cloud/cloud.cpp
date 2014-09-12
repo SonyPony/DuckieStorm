@@ -1,5 +1,6 @@
 #include "cloud.h"
 #include <QTime>
+#include "dischargearea/dischargearea.h"
 
 Cloud::Cloud(QQuickItem *parent): Obstacle(parent) {
     p_index = 0;
@@ -34,14 +35,18 @@ void Cloud::restore() {
 
     QObject *chargeBar = this->findChild<QObject*>("chargeBar");
     QObject *image = this->findChild<QObject*>("image");
+    DischargeArea *dischargeArea = this->findChild<DischargeArea*>("dischargeArea");
 
     chargeBar->setProperty("x", 0);
     chargeBar->setProperty("width", image->property("width"));
+    dischargeArea->setRandomSize();
 
     this->p_fullCharge = rand()%(p_maxCharge-p_minCharge+1)+p_minCharge;
     this->p_charge = this->fullCharge();
     this->p_debt = 0;
     this->setProperty("opacity", 1.0);
+
+    emit fullChargeChanged();
 }
 
 int Cloud::minCharge() const {

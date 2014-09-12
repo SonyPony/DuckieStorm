@@ -1,16 +1,11 @@
 import QtQuick 2.0
+import ScoreDialog 1.0
 import "../logic/generalLogic.js" as GL
-import "../logic/gameLogic.js" as GameLogic
 
-Item {
+ScoreDialog {
     id: scoreDialog
 
-    property bool highScore: false
-    signal show()
-    signal hide()
-
     x: (root.width-frame.width)/2
-    visible: false
 
     /*---------------Frame---------------*/
     Image {

@@ -13,11 +13,15 @@
 #include "types/background/trees.h"
 #include "types/background/tree.h"
 #include "types/fileIO/filestream.h"
+#include "dialogs/gameOverDialog/scoredialog.h"
+#include "types/obstacles/cloud/dischargearea/dischargearea.h"
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
+    qmlRegisterType<DischargeArea>("DischargeArea", 1, 0, "DischargeArea");
+    qmlRegisterType<ScoreDialog>("ScoreDialog", 1, 0, "ScoreDialog");
     qmlRegisterType<FileStream>("FileStream", 1, 0, "FileStream");
     qmlRegisterType<Tree>("Tree", 1, 0, "Tree");
     qmlRegisterType<Trees>("Trees", 1, 0, "Trees");
