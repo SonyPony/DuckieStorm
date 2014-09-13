@@ -142,7 +142,7 @@ ApplicationWindow {
                 id: jumpAnimation
                 objectName: "jumpAnimation"
 
-                ScriptAction { script: (function() { if(!duck.canJump) { jumpAnimation.stop() } }) }
+                ScriptAction { script: (function() { if(!duck.canJump) { jumpAnimation.stop() } })() }
                 ScriptAction { script: sounds.outWaterSound.play() }
                 NumberAnimation { target: duck.image; property: "y"; to: duck.image.y-duck.heightOfJump; duration: 500; easing.type: Easing.OutQuad }
                 NumberAnimation { target: duck.image; property: "y"; to: duck.image.y; duration: 500; easing.type: Easing.InQuad }
@@ -270,7 +270,28 @@ ApplicationWindow {
         }
     }
 
+    Image {
+        id: pauseButton
+        source: "res/images/pauseButton.svg"
 
+        x: root.width-(width+2*game.sizeOfPixel)
+        y: 2*game.sizeOfPixel
+        z: 1
+
+        width: 6*game.sizeOfPixel
+        height: 7*game.sizeOfPixel
+
+        /*----Renderovací velikost----*/
+        sourceSize.width: 600
+        sourceSize.height: 700
+        /*----------------------------*/
+
+        MouseArea {
+            anchors.fill: parent
+
+            onClicked: game.paused = (game.paused) ?false :true
+        }
+    }
 
     /*---------------------------------*/
     /*--------------Eventy-------------*/
