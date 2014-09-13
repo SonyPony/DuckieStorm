@@ -65,4 +65,14 @@ Item {
 
         Component.onCompleted: game.paused = true
     }
+
+    Text {
+        text: qsTr("Tap anywhere to start game.")
+
+        x: (root.width-width)/2
+        y: (root.height-height)/2- 4*game.sizeOfPixel
+
+        font.family: pixelFont.name
+        font.pixelSize: 2*game.sizeOfPixel
+    }
 }
