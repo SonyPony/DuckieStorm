@@ -266,6 +266,7 @@ ApplicationWindow {
 
             game.restart.connect(scoreDialog.hide)
             game.restart.connect(duck.restart)
+            game.restart.connect(ball.disable)
         }
     }
 
