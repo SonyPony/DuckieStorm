@@ -58,7 +58,7 @@ Item {
         text: "0"
         color: "orange"
 
-        font.pixelSize: 7*game.sizeOfPixel
+        font.pixelSize: 8*game.sizeOfPixel
         font.family: pixelFont.name
     }
 
