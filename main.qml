@@ -289,7 +289,7 @@ ApplicationWindow {
         MouseArea {
             anchors.fill: parent
 
-            onClicked: game.paused = (game.paused) ?false :true
+            onClicked: if(!game.over) { game.paused = (game.paused) ?false :true }
         }
     }
 
