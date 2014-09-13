@@ -152,12 +152,7 @@ Item {
             sourceSize.width: 200
             sourceSize.height: 200
 
-            Connections {
-                target: game
-                onPausedChanged: { (game.paused) ?moveAnimation.pause() :moveAnimation.resume() }
-            }
-
-            NumberAnimation { id: moveAnimation; target: image; property: "x"; running: true; loops: Animation.Infinite; from: image.x; to: image.x-width; duration: 29*GL.toNumberOfPixels(image.width) }
+            NumberAnimation { id: moveAnimation; target: image; property: "x"; running: !game.paused; loops: Animation.Infinite; from: image.x; to: image.x-width; duration: 29*GL.toNumberOfPixels(image.width) }
         }
     }
     /*-----------------------------------*/
