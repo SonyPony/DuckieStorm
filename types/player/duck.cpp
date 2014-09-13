@@ -12,7 +12,7 @@ void Duck::handleGamePause() {
     if(game->property("paused")==QVariant(true)) {
         p_canJump = false;
 
-        if(animation->property("running")==QVariant(true))
+        if(animation->property("running")==QVariant(true) && animation->property("over")==QVariant(true))
             QMetaObject::invokeMethod(animation, "stop");
     }
 
