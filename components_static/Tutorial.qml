@@ -17,6 +17,19 @@ Item {
         sourceSize.width: 1400
         sourceSize.height: 1400
         /*----------------------------*/
+
+        Text {
+            id: duckLabel
+
+            text: qsTr("Slide up to jump.")
+
+            anchors.left: parent.right
+            anchors.margins: game.sizeOfPixel
+            anchors.verticalCenter: parent.verticalCenter
+
+            font.family: pixelFont.name
+            font.pixelSize: 2*game.sizeOfPixel
+        }
     }
 
     Image {
@@ -36,5 +49,20 @@ Item {
         sourceSize.width: 1100
         sourceSize.height: 1100
         /*----------------------------*/
+
+        Text {
+            id: ballLabel
+
+            text: qsTr("Tap to throw ball,\ntargets are clouds.")
+
+            anchors.left: parent.right
+            anchors.margins: game.sizeOfPixel
+            anchors.verticalCenter: parent.verticalCenter
+
+            font.family: pixelFont.name
+            font.pixelSize: 2*game.sizeOfPixel
+        }
+
+        Component.onCompleted: game.paused = true
     }
 }

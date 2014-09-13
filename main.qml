@@ -88,9 +88,7 @@ ApplicationWindow {
             source: "score.txt"
         }
 
-        Tutorial {
-
-        }
+        Tutorial { id: tutorial }
 
         /*----Nastavení vazby----*/
         sizeOfPixel: (root.height * GL.fraction(120, 480))/Shapes.getDuckNumberOfPixels("column")
@@ -317,6 +315,11 @@ ApplicationWindow {
 
             if(Gestures.checkClick(root.touchX, root.touchY, mouse.x, mouse.y, 10)) //pokud byl proveden klik hodí kachnička míčem
                 ball.calculateInfo(mouse.x, mouse.y);
+
+            if(Gestures.checkClick(root.touchX, root.touchY, mouse.x, mouse.y, 10) && tutorial.visible) {
+                tutorial.visible = false
+                game.paused = false
+            }
         }
 
         onPositionChanged: {
