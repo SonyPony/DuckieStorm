@@ -18,6 +18,8 @@ void Duck::handleGamePause() {
 
     else
         p_canJump = true;
+
+    emit canJumpChanged();
 }
 
 void Duck::restart() {
