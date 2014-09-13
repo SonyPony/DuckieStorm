@@ -38,8 +38,8 @@ Item {
 
         source: ball.imageURL
         opacity: 0.3
-        x: 350
-        y: 100
+        x: 44*game.sizeOfPixel
+        y: 12*game.sizeOfPixel
         z: 1
 
         height: game.sizeOfPixel * 4
