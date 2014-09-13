@@ -53,10 +53,13 @@ Item {
     /*------------Výpis scóre------------*/
     Text {
         id: scoreText
+
+        x: game.sizeOfPixel
+        y: game.sizeOfPixel
         z: 1
 
         text: "0"
-        color: "orange"
+        color: "white"
 
         font.pixelSize: 8*game.sizeOfPixel
         font.family: pixelFont.name
