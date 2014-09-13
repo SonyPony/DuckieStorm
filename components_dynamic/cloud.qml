@@ -16,8 +16,9 @@ Cloud {
     /*----Vyrenderovaný obrázek blesku----*/
     Image {
         id: lightingImage
-        source: "../res/images/lightingImage.svg"
+        objectName: "lightingImage"
 
+        source: "../res/images/lightingImage.svg"
         visible: false
 
         y: cloudImage.y+ cloudImage.height + 15
