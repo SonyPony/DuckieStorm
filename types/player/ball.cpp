@@ -38,7 +38,7 @@ void Ball::updateBallPosition() {
     /*-------------------Nastavení hodnot------------------*/
     int CenterX = duck->property("horizontalCenterWhenThrowsBall").toInt();
     int CenterY = duck->property("verticalCenterWhenThrowsBall").toInt();
-    qreal prescale = root->property("width").toDouble()*(55.0/850.0);
+    qreal prescale = root->property("height").toDouble()*(55.0/480.0);
     qreal precission = p_time*70;
     /*-----------------------------------------------------*/
 

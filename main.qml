@@ -88,6 +88,8 @@ ApplicationWindow {
             source: "score.txt"
         }
 
+        Tutorial { id: tutorial }
+
         /*----Nastavení vazby----*/
         sizeOfPixel: (root.height * GL.fraction(120, 480))/Shapes.getDuckNumberOfPixels("column")
         /*-----------------------*/
@@ -100,12 +102,6 @@ ApplicationWindow {
         onSizeOfPixelChanged: {
                 DuckLogic.updateOutlines()
                 BarrelLogic.updateOutlines()
-        }
-
-        onOverChanged: {
-            if(!game.over) {
-
-            }
         }
 
         /*---------------------------------*/
@@ -146,8 +142,9 @@ ApplicationWindow {
             /*--Animace skákání a posunování okrajů kachničky--*/
             onJump: SequentialAnimation {
                 id: jumpAnimation
+                objectName: "jumpAnimation"
 
-                ScriptAction { script: (function() { if(!duck.canJump) { jumpAnimation.stop() } }) }
+                ScriptAction { script: (function() { if(!duck.canJump) { jumpAnimation.stop() } })() }
                 ScriptAction { script: sounds.outWaterSound.play() }
                 NumberAnimation { target: duck.image; property: "y"; to: duck.image.y-duck.heightOfJump; duration: 500; easing.type: Easing.OutQuad }
                 NumberAnimation { target: duck.image; property: "y"; to: duck.image.y; duration: 500; easing.type: Easing.InQuad }
@@ -270,10 +267,33 @@ ApplicationWindow {
             game.onPausedChanged.connect(trees.handleGamePause)
 
             game.restart.connect(scoreDialog.hide)
+            game.restart.connect(duck.restart)
+            game.restart.connect(ball.disable)
         }
     }
 
+    Image {
+        id: pauseButton
+        source: "res/images/pauseButton.svg"
 
+        x: root.width-(width+2*game.sizeOfPixel)
+        y: 2*game.sizeOfPixel
+        z: 1
+
+        width: 6*game.sizeOfPixel
+        height: 7*game.sizeOfPixel
+
+        /*----Renderovací velikost----*/
+        sourceSize.width: 600
+        sourceSize.height: 700
+        /*----------------------------*/
+
+        MouseArea {
+            anchors.fill: parent
+
+            onClicked: if(!game.over) { game.paused = (game.paused) ?false :true }
+        }
+    }
 
     /*---------------------------------*/
     /*--------------Eventy-------------*/
@@ -295,15 +315,17 @@ ApplicationWindow {
 
             if(Gestures.checkClick(root.touchX, root.touchY, mouse.x, mouse.y, 10)) //pokud byl proveden klik hodí kachnička míčem
                 ball.calculateInfo(mouse.x, mouse.y);
+
+            if(Gestures.checkClick(root.touchX, root.touchY, mouse.x, mouse.y, 10) && tutorial.visible) {
+                tutorial.visible = false
+                game.paused = false
+            }
         }
 
         onPositionChanged: {
             switch(Gestures.checkSlide(touchY, mouse.y, root.height*GL.fraction(140, 480))) {
                 case "slide up":
                     duck.jump()
-                    break;
-                case "slide down":
-                    game.paused = (game.paused) ?false :true    //přidat button na pausu
                     break;
             }
         }

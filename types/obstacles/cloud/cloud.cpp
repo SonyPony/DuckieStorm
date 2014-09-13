@@ -33,9 +33,14 @@ void Cloud::restart(QObject* group) {
 void Cloud::restore() {
     qsrand(QTime::currentTime().msec());
 
+    QObject *disAnimation = this->findChild<QObject*>("dischargeAnimationSound");
+    QObject *lightingImage = this->findChild<QObject*>("lightingImage");
     QObject *chargeBar = this->findChild<QObject*>("chargeBar");
     QObject *image = this->findChild<QObject*>("image");
     DischargeArea *dischargeArea = this->findChild<DischargeArea*>("dischargeArea");
+
+    disAnimation->setProperty("running", false);
+    lightingImage->setProperty("visible", false);
 
     chargeBar->setProperty("x", 0);
     chargeBar->setProperty("width", image->property("width"));
