@@ -7,7 +7,7 @@ class Game : public QQuickItem
 {
     Q_OBJECT
 
-    Q_PROPERTY(bool over READ over WRITE setOver NOTIFY overChanged)
+    Q_PROPERTY(bool over READ over)
     Q_PROPERTY(int score READ score WRITE setScore NOTIFY scoreChanged)
     Q_PROPERTY(int sizeOfPixel READ sizeOfPixel WRITE setSizeOfPixel NOTIFY sizeOfPixelChanged)
     Q_PROPERTY(bool paused READ paused WRITE setPaused NOTIFY pausedChanged)
@@ -37,15 +37,18 @@ class Game : public QQuickItem
         bool paused() const;
         int highScore() const;
 
-        void setOver(bool& value);
+        //void setOver(bool& value);
         void setScore(int& value);
         void setSizeOfPixel(int& value);
         void setPaused(bool& value);
         void setHighScore(int& value);
         /*--------------------------*/
 
+    private slots:
+        void gameIsOn();
+
     signals:
-        void overChanged();
+        //void overChanged();
         void scoreChanged();
         void sizeOfPixelChanged();
         void pausedChanged();

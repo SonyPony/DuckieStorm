@@ -6,10 +6,22 @@ Duck::Duck(QQuickItem *parent): VisibleItem(parent) {
 }
 
 void Duck::handleGamePause() {
-    if(this->parent()->property("paused")==QVariant(true))
+    QObject *game = this->parent();
+    QObject *animation = this->findChild<QObject*>("jumpAnimation");
+
+    if(game->property("paused")==QVariant(true)) {
         p_canJump = false;
+
+        if(animation->property("running")==QVariant(true))
+            QMetaObject::invokeMethod(animation, "stop");
+    }
+
     else
         p_canJump = true;
+}
+
+void Duck::restart() {
+    p_image->setProperty("y", p_defaultY);
 }
 
 bool Duck::canJump() const {

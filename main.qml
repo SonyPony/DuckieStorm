@@ -102,12 +102,6 @@ ApplicationWindow {
                 BarrelLogic.updateOutlines()
         }
 
-        onOverChanged: {
-            if(!game.over) {
-
-            }
-        }
-
         /*---------------------------------*/
         /*------------Kachnička------------*/
         /*---------------------------------*/
@@ -146,6 +140,7 @@ ApplicationWindow {
             /*--Animace skákání a posunování okrajů kachničky--*/
             onJump: SequentialAnimation {
                 id: jumpAnimation
+                objectName: "jumpAnimation"
 
                 ScriptAction { script: (function() { if(!duck.canJump) { jumpAnimation.stop() } }) }
                 ScriptAction { script: sounds.outWaterSound.play() }
@@ -270,6 +265,7 @@ ApplicationWindow {
             game.onPausedChanged.connect(trees.handleGamePause)
 
             game.restart.connect(scoreDialog.hide)
+            game.restart.connect(duck.restart)
         }
     }
 

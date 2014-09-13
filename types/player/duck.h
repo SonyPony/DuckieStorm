@@ -57,6 +57,7 @@ class Duck : public VisibleItem
 
     public slots:
         virtual void handleGamePause();
+        void restart();
 
     signals:
         void jump();

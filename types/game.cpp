@@ -5,6 +5,8 @@ Game::Game(QQuickItem *parent): QQuickItem(parent) {
     p_over = false;
     p_score = 0;
     p_paused = false;
+
+    QObject::connect(this, SIGNAL(restart()), this, SLOT(gameIsOn()));
 }
 
 void Game::end() {
@@ -25,6 +27,10 @@ void Game::end() {
     this->parent()->findChild<QObject*>("rootMouseArea")->setProperty("enabled", false);
     QMetaObject::invokeMethod(scoreDialog, "show");
     emit pausedChanged();
+}
+
+void Game::gameIsOn() {
+    p_over = false;
 }
 
 int Game::highScore() const {
@@ -54,12 +60,12 @@ void Game::setHighScore(int &value) {
     }
 }
 
-void Game::setOver(bool& value) {
+/*void Game::setOver(bool& value) {
     if(value != p_over) {
         p_over = value;
         emit overChanged();
     }
-}
+}*/
 
 void Game::setScore(int& value) {
     if(value != p_score) {
