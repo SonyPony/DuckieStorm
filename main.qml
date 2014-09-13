@@ -320,9 +320,6 @@ ApplicationWindow {
                 case "slide up":
                     duck.jump()
                     break;
-                case "slide down":
-                    game.paused = (game.paused) ?false :true    //přidat button na pausu
-                    break;
             }
         }
     }
