@@ -143,7 +143,7 @@ ScoreDialog {
 
     onHide: SequentialAnimation {
         NumberAnimation { target: scoreDialog; property: "y"; from: scoreDialog.y; to: root.height; duration: 800; easing.type: Easing.InOutCubic }
-        ScriptAction { script: (function() { game.score = 0; scoreText.color = "white" })() }
+        ScriptAction { script: (function() { game.score = 0; graphics.scoreText.color = "white" })() }
     }
 
     onShow: SequentialAnimation {
