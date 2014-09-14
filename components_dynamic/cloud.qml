@@ -73,7 +73,7 @@ Cloud {
         minHeight: 5*game.sizeOfPixel+((game.score<=12) ?Math.abs(game.score-12)*game.sizeOfPixel :0)
         maxHeight: cloudImage.height-((game.score<=12) ?game.score*game.sizeOfPixel :12*game.sizeOfPixel)
 
-        anchors.horizontalCenter: cloudImage.horizontalCenter
+        //anchors.horizontalCenter: cloudImage.horizontalCenter
 
         Behavior on width {
             NumberAnimation { duration: 800; easing.type: Easing.OutCubic }
