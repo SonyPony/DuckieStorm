@@ -44,7 +44,9 @@ void Cloud::restore() {
 
     chargeBar->setProperty("x", 0);
     chargeBar->setProperty("width", image->property("width"));
+
     dischargeArea->setRandomSize();
+    dischargeArea->setProperty("x", rand()%(image->property("width").toInt()- dischargeArea->property("width").toInt() +1));
 
     this->p_fullCharge = rand()%(p_maxCharge-p_minCharge+1)+p_minCharge;
     this->p_charge = this->fullCharge();
