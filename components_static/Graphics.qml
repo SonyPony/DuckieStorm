@@ -63,6 +63,14 @@ Item {
 
         font.pixelSize: 8*game.sizeOfPixel
         font.family: pixelFont.name
+
+        onTextChanged: {
+            if(scoreText.text>game.highScore)
+                scoreText.color = "red"
+
+            else if(scoreText.text==game.highScore)
+                scoreText.color = "orange"
+        }
     }
 
     /*-----------------------------------*/
@@ -136,7 +144,7 @@ Item {
 
     /*-Pozadí/přechod mezi řekou a trávou*/
     Repeater {
-        model: Math.ceil( root.width/(game.sizeOfPixel*2) ) + 1
+        model: Math.ceil( root.width/(game.sizeOfPixel*2) ) + 2
         delegate: Image {
             id: image
 
