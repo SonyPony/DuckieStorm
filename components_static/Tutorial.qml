@@ -8,7 +8,7 @@ Item {
         id: duckImage
 
         source: duck.imageURL
-        opacity: 0.3
+        opacity: 0.5
         x: duck.defaultX
         y: duck.defaultY-duck.heightOfJump
         z: 1
@@ -42,7 +42,7 @@ Item {
         objectName: "ballImage"
 
         source: ball.imageURL
-        opacity: 0.3
+        opacity: 0.5
         x: 44*game.sizeOfPixel
         y: 12*game.sizeOfPixel
         z: 1
