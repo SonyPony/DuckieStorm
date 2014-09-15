@@ -149,9 +149,15 @@ Item {
 
         property var objects: new Array
 
+        Connections {
+            target: game
+            onPausedChanged: (game.paused) ?treesMoveAnimation.pause() :treesMoveAnimation.resume()
+        }
+
         Component.onCompleted: Logic.initFirstTrees()
 
-        NumberAnimation { target: firstTrees; property: "x"; running: !game.paused; to: 0-firstTrees.width; duration: GL.toNumberOfPixels(firstTrees.width)*trees.speed }
+        NumberAnimation { id: treesMoveAnimation; target: firstTrees; property: "x"; to: 0-firstTrees.width; duration: GL.toNumberOfPixels(firstTrees.width)*trees.speed }
+
     }
     /*-----------------------------------*/
 

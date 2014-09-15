@@ -49,4 +49,6 @@ function initFirstTrees() {
     }
 
     firstTrees.width = firstTrees.objects[firstTrees.objects.length-1].x + 10*game.sizeOfPixel
+    treesMoveAnimation.start()
+    treesMoveAnimation.pause()
 }
