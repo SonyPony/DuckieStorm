@@ -11,6 +11,8 @@ Barrel {   //jeden objekt barelu
     property var outlines
     /*------------------------*/
 
+    z: 1
+
     /*---Vyrenderovaný obrázek barelu----*/
     Image {
         id: barrelImage
@@ -20,7 +22,6 @@ Barrel {   //jeden objekt barelu
         visible: false
 
         y: root.height - game.sizeOfPixel * 11 - game.sizeOfPixel * 2
-        z: 1
 
         width: game.sizeOfPixel * 11
         height: width

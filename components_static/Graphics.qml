@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import "../logic/generalLogic.js"as GL
+import "../logic/backgroundLogic.js" as Logic
 
 /*---------------------------------*/
 /*---Hiearchie obrázků(kvůli Z)----*/
@@ -139,6 +140,18 @@ Item {
         color: "#64d0ff"
 
         anchors.bottom: river.top
+    }
+    /*-----------------------------------*/
+
+    /*-----------První stromy------------*/
+    Item {
+        id: firstTrees
+
+        property var objects: new Array
+
+        Component.onCompleted: Logic.initFirstTrees()
+
+        NumberAnimation { target: firstTrees; property: "x"; running: !game.paused; to: 0-firstTrees.width; duration: GL.toNumberOfPixels(firstTrees.width)*trees.speed }
     }
     /*-----------------------------------*/
 
