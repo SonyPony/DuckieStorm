@@ -253,7 +253,7 @@ ApplicationWindow {
 
                 running: true
 
-                NumberAnimation { id: treeGeneratorDelay }
+                NumberAnimation { id: treeGeneratorDelay; duration: 500; }
                 ScriptAction { script: BackgroundLogic.sendTree() }
                 onRunningChanged: treeGenerator.start()
             }
@@ -290,6 +290,7 @@ ApplicationWindow {
 
         MouseArea {
             anchors.fill: parent
+            enabled: false
 
             onClicked: if(!game.over) { game.paused = (game.paused) ?false :true }
         }
@@ -318,6 +319,7 @@ ApplicationWindow {
 
             if(Gestures.checkClick(root.touchX, root.touchY, mouse.x, mouse.y, 10) && tutorial.visible) {
                 tutorial.visible = false
+                pauseButton.children[0].enabled = true
                 game.paused = false
             }
         }
