@@ -15,8 +15,8 @@ Tree {
         width: 10*game.sizeOfPixel
         height: 16*game.sizeOfPixel
 
-        sourceSize.width: 1000
-        sourceSize.height: 1600
+        sourceSize.width: 10*game.sizeOfPixel//1000
+        sourceSize.height: 16*game.sizeOfPixel//1600
     }
     /*-----------------------------------*/
 

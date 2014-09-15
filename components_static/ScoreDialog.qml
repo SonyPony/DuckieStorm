@@ -129,8 +129,8 @@ ScoreDialog {
         anchors.margins: 5*game.sizeOfPixel
 
         /*----Renderovací velikost----*/
-        sourceSize.width: 900
-        sourceSize.height: 900
+        sourceSize.width: 4.5*game.sizeOfPixel//900
+        sourceSize.height: 4.5*game.sizeOfPixel//900
         /*----------------------------*/
 
         MouseArea {
