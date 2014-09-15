@@ -151,19 +151,19 @@ Item {
 
         Connections {
             target: game
-            onPausedChanged: (game.paused) ?treesMoveAnimation.pause() :treesMoveAnimation.resume()
+            onPausedChanged: ((game.paused) ?treesMoveAnimation.pause() :treesMoveAnimation.resume())
         }
 
         Component.onCompleted: Logic.initFirstTrees()
 
-        NumberAnimation { id: treesMoveAnimation; target: firstTrees; property: "x"; to: 0-firstTrees.width; duration: GL.toNumberOfPixels(firstTrees.width)*trees.speed }
+        NumberAnimation { id: treesMoveAnimation; target: firstTrees; property: "x"; to: 0-firstTrees.width; duration: GL.toNumberOfPixels(firstTrees.width)*trees.speed; onRunningChanged: { if(!running) { firstTrees.deleteLater }}}
 
     }
     /*-----------------------------------*/
 
     /*-Pozadí/přechod mezi řekou a trávou*/
     Repeater {
-        model: Math.ceil( root.width/(game.sizeOfPixel*2) ) + 2
+        model: GL.toNumberOfPixels(root.width/2) + 2
         delegate: Image {
             id: image
 
@@ -179,7 +179,24 @@ Item {
             sourceSize.width: 200
             sourceSize.height: 200
 
-            NumberAnimation { id: moveAnimation; target: image; property: "x"; running: !game.paused; loops: Animation.Infinite; from: image.x; to: image.x-width; duration: 29*GL.toNumberOfPixels(image.width) }
+            Connections {
+                target: root
+                onWidthChanged: image.deleteLater
+                onHeightChanged: image.deleteLater
+            }
+
+            Connections {
+                target: game
+
+                onPausedChanged: ((game.paused) ?moveAnimation.pause() :moveAnimation.resume())
+            }
+
+            NumberAnimation { id: moveAnimation; target: image; property: "x"; loops: Animation.Infinite; from: image.x; to: image.x-width; duration: 29*GL.toNumberOfPixels(image.width) }
+
+            Component.onCompleted: {
+                moveAnimation.start()
+                moveAnimation.pause()
+            }
         }
     }
     /*-----------------------------------*/
