@@ -7,11 +7,13 @@ import "../logic/backgroundLogic.js" as Logic
 /*---------------------------------*/
 Item {
 
+    /*------Přenesení id do popředí------*/
     property alias duckImage: duckImage
     property alias ballImage: ballImage
     property alias scoreText: scoreText
     property alias edgeOfGrass: edgeOfGrass
     property alias grass: grass
+    /*-----------------------------------*/
 
     /*-------------Kachnička-------------*/
     Image {
@@ -109,10 +111,8 @@ Item {
         z: 0
 
         width: root.width
-        height: 5*game.sizeOfPixel //+ 3*game.sizeOfPixel
+        height: 5*game.sizeOfPixel
         color: "#b5e61d"
-
-        //anchors.bottom: river.top
     }
     /*-----------------------------------*/
 
@@ -128,7 +128,6 @@ Item {
 
         anchors.bottom: grass.top
     }
-
     /*-----------------------------------*/
 
     /*-Kus řeky s nižším Z než kachnička-*/
@@ -156,7 +155,7 @@ Item {
 
         Component.onCompleted: Logic.initFirstTrees()
 
-        NumberAnimation { id: treesMoveAnimation; target: firstTrees; property: "x"; to: 0-firstTrees.width; duration: GL.toNumberOfPixels(firstTrees.width)*trees.speed; onRunningChanged: { if(!running) { firstTrees.deleteLater }}}
+        NumberAnimation { id: treesMoveAnimation; target: firstTrees; property: "x"; to: 0-firstTrees.width; duration: GL.toNumberOfPixels(firstTrees.width)*trees.speed; onRunningChanged: { if(!running && firstTrees.x==0-firstTrees.width) { firstTrees.deleteLater }}}
 
     }
     /*-----------------------------------*/
@@ -181,6 +180,7 @@ Item {
 
             Connections {
                 target: root
+
                 onWidthChanged: image.deleteLater
                 onHeightChanged: image.deleteLater
             }
@@ -191,9 +191,11 @@ Item {
                 onPausedChanged: ((game.paused) ?moveAnimation.pause() :moveAnimation.resume())
             }
 
+            /*-------Animace pohybu dopředu------*/
             NumberAnimation { id: moveAnimation; target: image; property: "x"; loops: Animation.Infinite; from: image.x; to: image.x-width; duration: 29*GL.toNumberOfPixels(image.width) }
+            /*-----------------------------------*/
 
-            Component.onCompleted: {
+            Component.onCompleted: {    //init animace
                 moveAnimation.start()
                 moveAnimation.pause()
             }

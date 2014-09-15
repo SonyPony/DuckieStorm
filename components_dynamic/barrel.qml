@@ -32,9 +32,7 @@ Barrel {   //jeden objekt barelu
         /*----------------------------*/
     }
 
-    Component.onCompleted: {
-        Logic.initOutlines()
-    }
+    Component.onCompleted: Logic.initOutlines()
 
     Connections {
         target: game

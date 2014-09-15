@@ -65,15 +65,10 @@ Cloud {
         color: "yellow"
         sizeOfPixel: game.sizeOfPixel
 
-        width: root.width*GL.fraction(150, 854)  //změnit
-        height: root.height*GL.fraction(80,480)  //změnit
-
         minWidth: 5*game.sizeOfPixel+((game.score<=20) ?Math.abs(game.score-20)*game.sizeOfPixel :0)
         maxWidth: cloudImage.width-((game.score<=20) ?game.score*game.sizeOfPixel :20*game.sizeOfPixel)
         minHeight: 5*game.sizeOfPixel+((game.score<=12) ?Math.abs(game.score-12)*game.sizeOfPixel :0)
         maxHeight: cloudImage.height-((game.score<=12) ?game.score*game.sizeOfPixel :12*game.sizeOfPixel)
-
-        //anchors.horizontalCenter: cloudImage.horizontalCenter
 
         Behavior on width {
             NumberAnimation { duration: 800; easing.type: Easing.OutCubic }

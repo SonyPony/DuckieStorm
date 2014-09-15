@@ -47,7 +47,7 @@ ScoreDialog {
             height: 11*game.sizeOfPixel 
         }
 
-        Text {
+        Text {  //nápis HIGH
             id: highTitle
 
             text: (highScore) ?qsTr("HIGH") :""
@@ -58,7 +58,7 @@ ScoreDialog {
         }
 
 
-        Text {
+        Text {  //nápis SCORE
             id: scoreTitle
 
             text: qsTr("SCORE")
@@ -141,13 +141,17 @@ ScoreDialog {
     }
     /*-----------------------------------*/
 
+    /*---Animace vyjetí dialogu nahoru---*/
     onHide: SequentialAnimation {
         NumberAnimation { target: scoreDialog; property: "y"; from: scoreDialog.y; to: root.height; duration: 800; easing.type: Easing.InOutCubic }
         ScriptAction { script: (function() { game.score = 0; graphics.scoreText.color = "white" })() }
     }
+    /*-----------------------------------*/
 
+    /*----Animace zajetí dialogu dolů----*/
     onShow: SequentialAnimation {
             ScriptAction { script: scoreDialog.visible = true }
             NumberAnimation { target: scoreDialog; property: "y"; from: root.height; to: (root.height-frame.height)/2 - 4*game.sizeOfPixel; duration: 800; easing.type: Easing.InOutCubic }
-        }
+    }
+    /*-----------------------------------*/
 }
