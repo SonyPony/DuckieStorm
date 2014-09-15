@@ -1,6 +1,9 @@
 import QtQuick 2.0
 
 Item {
+    id: tutorial
+
+    /*-------Kachnička s popiskem--------*/
     Image {
         id: duckImage
 
@@ -14,8 +17,8 @@ Item {
         height: width
 
         /*----Renderovací velikost----*/
-        sourceSize.width: 1400
-        sourceSize.height: 1400
+        sourceSize.width: 14*game.sizeOfPixel//1400
+        sourceSize.height: 14*game.sizeOfPixel//1400
         /*----------------------------*/
 
         Text {
@@ -31,7 +34,9 @@ Item {
             font.pixelSize: 2*game.sizeOfPixel
         }
     }
+    /*-----------------------------------*/
 
+    /*----------Míš s popiskem-----------*/
     Image {
         id: ballImage
         objectName: "ballImage"
@@ -46,8 +51,8 @@ Item {
         width: height
 
         /*----Renderovací velikost----*/
-        sourceSize.width: 1100
-        sourceSize.height: 1100
+        sourceSize.width: 4*game.sizeOfPixel//1100
+        sourceSize.height: 4*game.sizeOfPixel//1100
         /*----------------------------*/
 
         Text {
@@ -65,7 +70,9 @@ Item {
 
         Component.onCompleted: game.paused = true
     }
+    /*-----------------------------------*/
 
+    /*------Popisek jak začít hru--------*/
     Text {
         text: qsTr("Tap anywhere to start game.")
 
@@ -75,4 +82,9 @@ Item {
         font.family: pixelFont.name
         font.pixelSize: 2*game.sizeOfPixel
     }
+
+    Behavior on opacity {   //animace při mizení
+        NumberAnimation { duration: 500 }
+    }
+    /*------------------------------------*/
 }

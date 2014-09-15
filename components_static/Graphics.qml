@@ -1,16 +1,19 @@
 import QtQuick 2.0
 import "../logic/generalLogic.js"as GL
+import "../logic/backgroundLogic.js" as Logic
 
 /*---------------------------------*/
 /*---Hiearchie obrázků(kvůli Z)----*/
 /*---------------------------------*/
 Item {
 
+    /*------Přenesení id do popředí------*/
     property alias duckImage: duckImage
     property alias ballImage: ballImage
     property alias scoreText: scoreText
     property alias edgeOfGrass: edgeOfGrass
     property alias grass: grass
+    /*-----------------------------------*/
 
     /*-------------Kachnička-------------*/
     Image {
@@ -25,8 +28,8 @@ Item {
         height: width
 
         /*----Renderovací velikost----*/
-        sourceSize.width: 1400
-        sourceSize.height: 1400
+        sourceSize.width: 14*game.sizeOfPixel//1400
+        sourceSize.height: 14*game.sizeOfPixel//1400
         /*----------------------------*/
     }
     /*-----------------------------------*/
@@ -44,8 +47,8 @@ Item {
         visible: false
 
         /*----Renderovací velikost----*/
-        sourceSize.width: 1100
-        sourceSize.height: 1100
+        sourceSize.width: 4*game.sizeOfPixel//1100
+        sourceSize.height: 4*game.sizeOfPixel//1100
         /*----------------------------*/
     }
     /*-----------------------------------*/
@@ -108,10 +111,8 @@ Item {
         z: 0
 
         width: root.width
-        height: 5*game.sizeOfPixel //+ 3*game.sizeOfPixel
+        height: 5*game.sizeOfPixel
         color: "#b5e61d"
-
-        //anchors.bottom: river.top
     }
     /*-----------------------------------*/
 
@@ -127,7 +128,6 @@ Item {
 
         anchors.bottom: grass.top
     }
-
     /*-----------------------------------*/
 
     /*-Kus řeky s nižším Z než kachnička-*/
@@ -142,9 +142,27 @@ Item {
     }
     /*-----------------------------------*/
 
+    /*-----------První stromy------------*/
+    Item {
+        id: firstTrees
+
+        property var objects: new Array
+
+        Connections {
+            target: game
+            onPausedChanged: ((game.paused) ?treesMoveAnimation.pause() :treesMoveAnimation.resume())
+        }
+
+        Component.onCompleted: Logic.initFirstTrees()
+
+        NumberAnimation { id: treesMoveAnimation; target: firstTrees; property: "x"; to: 0-firstTrees.width; duration: GL.toNumberOfPixels(firstTrees.width)*trees.speed; onRunningChanged: { if(!running && firstTrees.x==0-firstTrees.width) { firstTrees.deleteLater; treesMoveAnimation.deleteLater }}}
+
+    }
+    /*-----------------------------------*/
+
     /*-Pozadí/přechod mezi řekou a trávou*/
     Repeater {
-        model: Math.ceil( root.width/(game.sizeOfPixel*2) ) + 2
+        model: GL.toNumberOfPixels(root.width/2) + 2
         delegate: Image {
             id: image
 
@@ -157,10 +175,30 @@ Item {
             width: 2*game.sizeOfPixel
             height: width
 
-            sourceSize.width: 200
-            sourceSize.height: 200
+            sourceSize.width: 2*game.sizeOfPixel//200
+            sourceSize.height: 2*game.sizeOfPixel//200
 
-            NumberAnimation { id: moveAnimation; target: image; property: "x"; running: !game.paused; loops: Animation.Infinite; from: image.x; to: image.x-width; duration: 29*GL.toNumberOfPixels(image.width) }
+            Connections {
+                target: root
+
+                onWidthChanged: image.deleteLater
+                onHeightChanged: image.deleteLater
+            }
+
+            Connections {
+                target: game
+
+                onPausedChanged: ((game.paused) ?moveAnimation.pause() :moveAnimation.resume())
+            }
+
+            /*-------Animace pohybu dopředu------*/
+            NumberAnimation { id: moveAnimation; target: image; property: "x"; loops: Animation.Infinite; from: image.x; to: image.x-width; duration: 29*GL.toNumberOfPixels(image.width) }
+            /*-----------------------------------*/
+
+            Component.onCompleted: {    //init animace
+                moveAnimation.start()
+                moveAnimation.pause()
+            }
         }
     }
     /*-----------------------------------*/

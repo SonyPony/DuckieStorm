@@ -10,8 +10,8 @@ Cloud {
     objectName: "singleCloud"
 
     chargePiece: cloudImage.width/fullCharge
-    minCharge: (game.score>10) ?2 :1
-    maxCharge: (game.score>10) ?3 :2
+    minCharge: (game.score>25) ?2 :1
+    maxCharge: (game.score>25) ?3 :2
 
     /*----Vyrenderovaný obrázek blesku----*/
     Image {
@@ -27,8 +27,8 @@ Cloud {
         height: game.sizeOfPixel*9
 
         /*----Renderovací velikost----*/
-        sourceSize.width: 600
-        sourceSize.height: 900
+        sourceSize.width: 6*game.sizeOfPixel//600
+        sourceSize.height: 9*game.sizeOfPixel//900
         /*----------------------------*/
 
         anchors.horizontalCenter: cloudImage.horizontalCenter
@@ -49,8 +49,8 @@ Cloud {
         height: game.sizeOfPixel*14
 
         /*----Renderovací velikost----*/
-        sourceSize.width: 2600
-        sourceSize.height: 1400
+        sourceSize.width: 26*game.sizeOfPixel//2600
+        sourceSize.height: 14*game.sizeOfPixel//1400
         /*----------------------------*/
     }
     /*-----------------------------------*/
@@ -65,15 +65,10 @@ Cloud {
         color: "yellow"
         sizeOfPixel: game.sizeOfPixel
 
-        width: root.width*GL.fraction(150, 854)  //změnit
-        height: root.height*GL.fraction(80,480)  //změnit
-
         minWidth: 5*game.sizeOfPixel+((game.score<=20) ?Math.abs(game.score-20)*game.sizeOfPixel :0)
         maxWidth: cloudImage.width-((game.score<=20) ?game.score*game.sizeOfPixel :20*game.sizeOfPixel)
         minHeight: 5*game.sizeOfPixel+((game.score<=12) ?Math.abs(game.score-12)*game.sizeOfPixel :0)
         maxHeight: cloudImage.height-((game.score<=12) ?game.score*game.sizeOfPixel :12*game.sizeOfPixel)
-
-        //anchors.horizontalCenter: cloudImage.horizontalCenter
 
         Behavior on width {
             NumberAnimation { duration: 800; easing.type: Easing.OutCubic }

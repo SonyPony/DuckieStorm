@@ -20,7 +20,7 @@ function initTrees() {
   |------------------------Nastaví data a zapne animaci stromu------------------------
   |----------------------------------------------------------------------------------*/
 
-function sendTree() {       //-----------------------------------------------------------------------
+function sendTree() {
     for(var key in trees.objects)
         if(trees.isAvailable[key]) {
             treeGeneratorDelay.duration = Math.floor(Math.random()*(trees.spawnTimeHighLimit-trees.spawnTimeLowLimit)+trees.spawnTimeLowLimit);
@@ -30,4 +30,31 @@ function sendTree() {       //--------------------------------------------------
             trees.objects[key].start();
             break;
         }
+}
+
+/*|-----------------------------------------------------------------------------------
+  |--------------------Nastaví data a zapne animaci prvních stromu--------------------
+  |----------------------------------------------------------------------------------*/
+
+function initFirstTrees() {
+    var component;
+
+    var highLimit = 2*game.sizeOfPixel
+    var lowLimit = 0.5*game.sizeOfPixel
+    var previousX = 0;
+
+    for(var i = 0; i<Math.floor(GL.toNumberOfPixels(root.width)*GL.fraction(10, GL.toNumberOfPixels(root.width))); i++) {
+        component = Qt.createComponent("../components_dynamic/tree.qml");
+
+        firstTrees.objects[i] = component.createObject(firstTrees);
+        firstTrees.objects[i].x = (i) ?(Math.floor(Math.random()*(highLimit-lowLimit)) + lowLimit + previousX + ((i) ?10*game.sizeOfPixel :0)) :0
+        firstTrees.objects[i].y = (graphics.edgeOfGrass.y+graphics.edgeOfGrass.height+graphics.grass.height) - game.sizeOfPixel*Math.floor(Math.random()*( GL.toNumberOfPixels(graphics.grass.height)+1 )) - 16*game.sizeOfPixel;
+        firstTrees.objects[i].visible = true;
+
+        previousX = firstTrees.objects[i].x
+    }
+
+    firstTrees.width = firstTrees.objects[firstTrees.objects.length-1].x + 10*game.sizeOfPixel
+    treesMoveAnimation.start()  //init animace
+    treesMoveAnimation.pause()
 }

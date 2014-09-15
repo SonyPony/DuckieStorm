@@ -88,6 +88,10 @@ ApplicationWindow {
             source: "score.txt"
         }
 
+        /*---------------------------------*/
+        /*------------Tutorial-------------*/
+        /*---------------------------------*/
+
         Tutorial { id: tutorial }
 
         /*----Nastavení vazby----*/
@@ -253,13 +257,13 @@ ApplicationWindow {
 
                 running: true
 
-                NumberAnimation { id: treeGeneratorDelay }
+                NumberAnimation { id: treeGeneratorDelay; duration: 500; }
                 ScriptAction { script: BackgroundLogic.sendTree() }
                 onRunningChanged: treeGenerator.start()
             }
         }
 
-        Component.onCompleted: {
+        Component.onCompleted: {    //propojení vše se signály game
             game.onPausedChanged.connect(duck.handleGamePause)
             game.onPausedChanged.connect(ball.handleGamePause)
             game.onPausedChanged.connect(barrels.handleGamePause)
@@ -272,6 +276,9 @@ ApplicationWindow {
         }
     }
 
+    /*---------------------------------*/
+    /*----------Pause button-----------*/
+    /*---------------------------------*/
     Image {
         id: pauseButton
         source: "res/images/pauseButton.svg"
@@ -290,6 +297,7 @@ ApplicationWindow {
 
         MouseArea {
             anchors.fill: parent
+            enabled: false
 
             onClicked: if(!game.over) { game.paused = (game.paused) ?false :true }
         }
@@ -316,8 +324,9 @@ ApplicationWindow {
             if(Gestures.checkClick(root.touchX, root.touchY, mouse.x, mouse.y, 10)) //pokud byl proveden klik hodí kachnička míčem
                 ball.calculateInfo(mouse.x, mouse.y);
 
-            if(Gestures.checkClick(root.touchX, root.touchY, mouse.x, mouse.y, 10) && tutorial.visible) {
-                tutorial.visible = false
+            if(Gestures.checkClick(root.touchX, root.touchY, mouse.x, mouse.y, 10) && tutorial.visible) {   //první klik ve hře
+                tutorial.opacity = 0.0
+                pauseButton.children[0].enabled = true
                 game.paused = false
             }
         }
