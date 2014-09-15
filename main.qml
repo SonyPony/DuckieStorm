@@ -291,8 +291,8 @@ ApplicationWindow {
         height: 7*game.sizeOfPixel
 
         /*----Renderovací velikost----*/
-        sourceSize.width: 600
-        sourceSize.height: 700
+        sourceSize.width: 6*game.sizeOfPixel
+        sourceSize.height: 7*game.sizeOfPixel
         /*----------------------------*/
 
         MouseArea {
