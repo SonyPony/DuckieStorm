@@ -17,8 +17,8 @@ Item {
         height: width
 
         /*----Renderovací velikost----*/
-        sourceSize.width: 14*game.sizeOfPixel//1400
-        sourceSize.height: 14*game.sizeOfPixel//1400
+        sourceSize.width: 14*game.sizeOfPixel
+        sourceSize.height: 14*game.sizeOfPixel
         /*----------------------------*/
 
         Text {
@@ -51,8 +51,8 @@ Item {
         width: height
 
         /*----Renderovací velikost----*/
-        sourceSize.width: 4*game.sizeOfPixel//1100
-        sourceSize.height: 4*game.sizeOfPixel//1100
+        sourceSize.width: 4*game.sizeOfPixel
+        sourceSize.height: 4*game.sizeOfPixel
         /*----------------------------*/
 
         Text {
