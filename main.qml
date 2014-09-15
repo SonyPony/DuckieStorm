@@ -291,8 +291,8 @@ ApplicationWindow {
         height: 7*game.sizeOfPixel
 
         /*----Renderovací velikost----*/
-        sourceSize.width: 600
-        sourceSize.height: 700
+        sourceSize.width: 6*game.sizeOfPixel
+        sourceSize.height: 7*game.sizeOfPixel
         /*----------------------------*/
 
         MouseArea {
@@ -332,7 +332,7 @@ ApplicationWindow {
         }
 
         onPositionChanged: {
-            switch(Gestures.checkSlide(touchY, mouse.y, root.height*GL.fraction(140, 480))) {
+            switch(Gestures.checkSlide(root.touchY, mouse.y, 30)) {
                 case "slide up":
                     duck.jump()
                     break;

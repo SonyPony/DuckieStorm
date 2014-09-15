@@ -27,8 +27,8 @@ Cloud {
         height: game.sizeOfPixel*9
 
         /*----Renderovací velikost----*/
-        sourceSize.width: 6*game.sizeOfPixel//600
-        sourceSize.height: 9*game.sizeOfPixel//900
+        sourceSize.width: 6*game.sizeOfPixel
+        sourceSize.height: 9*game.sizeOfPixel
         /*----------------------------*/
 
         anchors.horizontalCenter: cloudImage.horizontalCenter
@@ -49,8 +49,8 @@ Cloud {
         height: game.sizeOfPixel*14
 
         /*----Renderovací velikost----*/
-        sourceSize.width: 26*game.sizeOfPixel//2600
-        sourceSize.height: 14*game.sizeOfPixel//1400
+        sourceSize.width: 26*game.sizeOfPixel
+        sourceSize.height: 14*game.sizeOfPixel
         /*----------------------------*/
     }
     /*-----------------------------------*/

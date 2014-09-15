@@ -28,8 +28,8 @@ Item {
         height: width
 
         /*----Renderovací velikost----*/
-        sourceSize.width: 14*game.sizeOfPixel//1400
-        sourceSize.height: 14*game.sizeOfPixel//1400
+        sourceSize.width: 14*game.sizeOfPixel
+        sourceSize.height: 14*game.sizeOfPixel
         /*----------------------------*/
     }
     /*-----------------------------------*/
@@ -47,8 +47,8 @@ Item {
         visible: false
 
         /*----Renderovací velikost----*/
-        sourceSize.width: 4*game.sizeOfPixel//1100
-        sourceSize.height: 4*game.sizeOfPixel//1100
+        sourceSize.width: 4*game.sizeOfPixel
+        sourceSize.height: 4*game.sizeOfPixel
         /*----------------------------*/
     }
     /*-----------------------------------*/
@@ -175,8 +175,8 @@ Item {
             width: 2*game.sizeOfPixel
             height: width
 
-            sourceSize.width: 2*game.sizeOfPixel//200
-            sourceSize.height: 2*game.sizeOfPixel//200
+            sourceSize.width: 2*game.sizeOfPixel
+            sourceSize.height: 2*game.sizeOfPixel
 
             Connections {
                 target: root

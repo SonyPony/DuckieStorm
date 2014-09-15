@@ -27,8 +27,8 @@ Barrel {   //jeden objekt barelu
         height: width
 
         /*----Renderovací velikost----*/
-        sourceSize.width: 11*game.sizeOfPixel//1100
-        sourceSize.height: 11*game.sizeOfPixel//1100
+        sourceSize.width: 11*game.sizeOfPixel
+        sourceSize.height: 11*game.sizeOfPixel
         /*----------------------------*/
     }
 

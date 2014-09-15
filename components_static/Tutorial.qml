@@ -8,7 +8,7 @@ Item {
         id: duckImage
 
         source: duck.imageURL
-        opacity: 0.3
+        opacity: 0.5
         x: duck.defaultX
         y: duck.defaultY-duck.heightOfJump
         z: 1
@@ -17,8 +17,8 @@ Item {
         height: width
 
         /*----Renderovací velikost----*/
-        sourceSize.width: 14*game.sizeOfPixel//1400
-        sourceSize.height: 14*game.sizeOfPixel//1400
+        sourceSize.width: 14*game.sizeOfPixel
+        sourceSize.height: 14*game.sizeOfPixel
         /*----------------------------*/
 
         Text {
@@ -42,7 +42,7 @@ Item {
         objectName: "ballImage"
 
         source: ball.imageURL
-        opacity: 0.3
+        opacity: 0.5
         x: 44*game.sizeOfPixel
         y: 12*game.sizeOfPixel
         z: 1
@@ -51,8 +51,8 @@ Item {
         width: height
 
         /*----Renderovací velikost----*/
-        sourceSize.width: 4*game.sizeOfPixel//1100
-        sourceSize.height: 4*game.sizeOfPixel//1100
+        sourceSize.width: 4*game.sizeOfPixel
+        sourceSize.height: 4*game.sizeOfPixel
         /*----------------------------*/
 
         Text {
