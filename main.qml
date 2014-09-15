@@ -332,7 +332,7 @@ ApplicationWindow {
         }
 
         onPositionChanged: {
-            switch(Gestures.checkSlide(touchY, mouse.y, root.height*GL.fraction(140, 480))) {
+            switch(Gestures.checkSlide(root.touchY, mouse.y, 30)) {
                 case "slide up":
                     duck.jump()
                     break;
