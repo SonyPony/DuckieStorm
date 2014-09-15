@@ -1,6 +1,8 @@
 import QtQuick 2.0
 
 Item {
+    id: tutorial
+
     Image {
         id: duckImage
 
@@ -74,5 +76,9 @@ Item {
 
         font.family: pixelFont.name
         font.pixelSize: 2*game.sizeOfPixel
+    }
+
+    Behavior on opacity {
+        NumberAnimation { duration: 500 }
     }
 }

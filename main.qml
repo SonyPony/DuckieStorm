@@ -318,7 +318,7 @@ ApplicationWindow {
                 ball.calculateInfo(mouse.x, mouse.y);
 
             if(Gestures.checkClick(root.touchX, root.touchY, mouse.x, mouse.y, 10) && tutorial.visible) {
-                tutorial.visible = false
+                tutorial.opacity = 0.0
                 pauseButton.children[0].enabled = true
                 game.paused = false
             }
