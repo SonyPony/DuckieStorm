@@ -155,7 +155,7 @@ Item {
 
         Component.onCompleted: Logic.initFirstTrees()
 
-        NumberAnimation { id: treesMoveAnimation; target: firstTrees; property: "x"; to: 0-firstTrees.width; duration: GL.toNumberOfPixels(firstTrees.width)*trees.speed; onRunningChanged: { if(!running && firstTrees.x==0-firstTrees.width) { firstTrees.deleteLater }}}
+        NumberAnimation { id: treesMoveAnimation; target: firstTrees; property: "x"; to: 0-firstTrees.width; duration: GL.toNumberOfPixels(firstTrees.width)*trees.speed; onRunningChanged: { if(!running && firstTrees.x==0-firstTrees.width) { firstTrees.deleteLater; treesMoveAnimation.deleteLater }}}
 
     }
     /*-----------------------------------*/
