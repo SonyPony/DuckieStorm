@@ -1,6 +1,5 @@
 import QtQuick 2.0
 import "../logic/generalLogic.js"as GL
-import "../logic/backgroundLogic.js" as Logic
 
 /*---------------------------------*/
 /*---Hiearchie obrázků(kvůli Z)----*/
@@ -13,6 +12,8 @@ Item {
     property alias scoreText: scoreText
     property alias edgeOfGrass: edgeOfGrass
     property alias grass: grass
+    property alias firstTrees: firstTrees
+    property alias treesMoveAnimation: treesMoveAnimation
     /*-----------------------------------*/
 
     /*-------------Kachnička-------------*/
@@ -152,8 +153,6 @@ Item {
             target: game
             onPausedChanged: ((game.paused) ?treesMoveAnimation.pause() :treesMoveAnimation.resume())
         }
-
-        Component.onCompleted: Logic.initFirstTrees()
 
         NumberAnimation { id: treesMoveAnimation; target: firstTrees; property: "x"; to: 0-firstTrees.width; duration: GL.toNumberOfPixels(firstTrees.width)*trees.speed; onRunningChanged: { if(!running && firstTrees.x==0-firstTrees.width) { firstTrees.deleteLater; treesMoveAnimation.deleteLater }}}
 

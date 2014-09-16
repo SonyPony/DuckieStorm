@@ -25,8 +25,8 @@ ApplicationWindow {
     id: root
 
     /*--smazat--*/ //možná
-    width: 854
-    height: 480
+    width: 1//854
+    height: 1//480
     visible: true
     /*----------*/
 
@@ -44,6 +44,9 @@ ApplicationWindow {
 
     onWidthChanged: {
         DuckLogic.updateOutlines()
+
+        if(root.width>0 && graphics.firstTrees.width==0)
+            BackgroundLogic.initFirstTrees()
     }
 
     Game {
