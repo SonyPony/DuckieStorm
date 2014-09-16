@@ -46,15 +46,15 @@ function initFirstTrees() {
     for(var i = 0; i<Math.floor(GL.toNumberOfPixels(root.width)*GL.fraction(10, GL.toNumberOfPixels(root.width))); i++) {
         component = Qt.createComponent("../components_dynamic/tree.qml");
 
-        firstTrees.objects[i] = component.createObject(firstTrees);
-        firstTrees.objects[i].x = (i) ?(Math.floor(Math.random()*(highLimit-lowLimit)) + lowLimit + previousX + ((i) ?10*game.sizeOfPixel :0)) :0
-        firstTrees.objects[i].y = (graphics.edgeOfGrass.y+graphics.edgeOfGrass.height+graphics.grass.height) - game.sizeOfPixel*Math.floor(Math.random()*( GL.toNumberOfPixels(graphics.grass.height)+1 )) - 16*game.sizeOfPixel;
-        firstTrees.objects[i].visible = true;
+        graphics.firstTrees.objects[i] = component.createObject(graphics.firstTrees);
+        graphics.firstTrees.objects[i].x = (i) ?(Math.floor(Math.random()*(highLimit-lowLimit)) + lowLimit + previousX + ((i) ?10*game.sizeOfPixel :0)) :0
+        graphics.firstTrees.objects[i].y = (graphics.edgeOfGrass.y+graphics.edgeOfGrass.height+graphics.grass.height) - game.sizeOfPixel*Math.floor(Math.random()*( GL.toNumberOfPixels(graphics.grass.height)+1 )) - 16*game.sizeOfPixel;
+        graphics.firstTrees.objects[i].visible = true;
 
-        previousX = firstTrees.objects[i].x
+        previousX = graphics.firstTrees.objects[i].x
     }
 
-    firstTrees.width = firstTrees.objects[firstTrees.objects.length-1].x + 10*game.sizeOfPixel
-    treesMoveAnimation.start()  //init animace
-    treesMoveAnimation.pause()
+    graphics.firstTrees.width = graphics.firstTrees.objects[graphics.firstTrees.objects.length-1].x + 10*game.sizeOfPixel
+    graphics.treesMoveAnimation.start()  //init animace
+    graphics.treesMoveAnimation.pause()
 }
