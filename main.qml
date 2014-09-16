@@ -25,7 +25,7 @@ ApplicationWindow {
     id: root
 
     /*--smazat--*/ //možná
-    width: 854
+    width: 1554
     height: 480
     visible: true
     /*----------*/
