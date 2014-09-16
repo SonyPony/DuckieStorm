@@ -191,7 +191,7 @@ Item {
             }
 
             /*-------Animace pohybu dopředu------*/
-            NumberAnimation { id: moveAnimation; target: image; property: "x"; loops: Animation.Infinite; from: image.x; to: image.x-width; duration: trees.speed*GL.toNumberOfPixels(image.width) }
+            NumberAnimation { id: moveAnimation; target: image; property: "x"; loops: Animation.Infinite; from: image.x; to: image.x-width; duration: 29*GL.toNumberOfPixels(image.width) }
             /*-----------------------------------*/
 
             Component.onCompleted: {    //init animace
