@@ -45,7 +45,7 @@ ApplicationWindow {
     onWidthChanged: {
         DuckLogic.updateOutlines()
 
-        if(root.width>0 && graphics.firstTrees.width==0)
+        if(root.width>0 && graphics.firstTrees.width==0 && game.sizeOfPixel)
             BackgroundLogic.initFirstTrees()
     }
 

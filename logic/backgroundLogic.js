@@ -42,8 +42,9 @@ function initFirstTrees() {
     var highLimit = 2*game.sizeOfPixel
     var lowLimit = 0.5*game.sizeOfPixel
     var previousX = 0;
+    var numberOfTrees = GL.toNumberOfPixels(root.width)/10.5
 
-    for(var i = 0; i<Math.floor(GL.toNumberOfPixels(root.width)/(10.5)); i++) {
+    for(var i = 0; i<numberOfTrees; i++) {
         component = Qt.createComponent("../components_dynamic/tree.qml");
 
         graphics.firstTrees.objects[i] = component.createObject(graphics.firstTrees);
