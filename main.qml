@@ -260,7 +260,7 @@ ApplicationWindow {
 
                 running: true
 
-                NumberAnimation { id: treeGeneratorDelay; duration: 500; }
+                NumberAnimation { id: treeGeneratorDelay }
                 ScriptAction { script: BackgroundLogic.sendTree() }
                 onRunningChanged: treeGenerator.start()
             }
