@@ -1,6 +1,7 @@
 import QtQuick 2.2
 import QtQuick.Controls 1.1
 import QtMultimedia 5.3
+import QtQuick.Window 2.0
 
 import Duck 1.0
 import Trees 1.0
@@ -324,10 +325,10 @@ ApplicationWindow {
         onReleased: {
             root.mousePressed = false;
 
-            if(Gestures.checkClick(root.touchX, root.touchY, mouse.x, mouse.y, 10)) //pokud byl proveden klik hodí kachnička míčem
+            if(Gestures.checkClick(root.touchX, root.touchY, mouse.x, mouse.y, GL.pixels(Screen.logicalPixelDensity, 1.5))) //pokud byl proveden klik hodí kachnička míčem
                 ball.calculateInfo(mouse.x, mouse.y);
 
-            if(Gestures.checkClick(root.touchX, root.touchY, mouse.x, mouse.y, 10) && tutorial.visible) {   //první klik ve hře
+            if(Gestures.checkClick(root.touchX, root.touchY, mouse.x, mouse.y, GL.pixels(Screen.logicalPixelDensity, 1.5)) && tutorial.visible) {   //první klik ve hře
                 tutorial.opacity = 0.0
                 pauseButton.children[0].enabled = true
                 game.paused = false
@@ -335,7 +336,7 @@ ApplicationWindow {
         }
 
         onPositionChanged: {
-            switch(Gestures.checkSlide(root.touchY, mouse.y, 30)) {
+            switch(Gestures.checkSlide(root.touchY, mouse.y, GL.pixels(Screen.logicalPixelDensity, 7))) {
                 case "slide up":
                     duck.jump()
                     break;
