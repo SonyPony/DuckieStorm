@@ -1,3 +1,8 @@
+/*|File: scoredialog.h
+  |Author: Son Hai Nguyen
+  |License: LGPL
+  |*/
+
 #ifndef SCOREDIALOG_H
 #define SCOREDIALOG_H
 

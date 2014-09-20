@@ -1,3 +1,8 @@
+/*|File: cloud.h
+  |Author: Son Hai Nguyen
+  |License: LGPL
+  |*/
+
 #ifndef CLOUD_H
 #define CLOUD_H
 

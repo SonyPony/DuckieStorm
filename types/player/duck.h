@@ -1,3 +1,8 @@
+/*|File: duck.h
+  |Author: Son Hai Nguyen
+  |License: LGPL
+  |*/
+
 #ifndef DUCK_H
 #define DUCK_H
 

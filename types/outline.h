@@ -1,3 +1,8 @@
+/*|File: outline.h
+  |Author: Son Hai Nguyen
+  |License: LGPL
+  |*/
+
 #ifndef OUTLINE_H
 #define OUTLINE_H
 

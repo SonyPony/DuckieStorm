@@ -1,3 +1,8 @@
+/*|File: backgroundLogic.js
+  |Author: Son Hai Nguyen
+  |License: LGPL
+  |*/
+
 .import "generalLogic.js" as GL
 
 /*|-----------------------------------------------------------------------------------

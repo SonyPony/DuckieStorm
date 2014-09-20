@@ -1,3 +1,8 @@
+/*|File: barrel.qml
+  |Author: Son Hai Nguyen
+  |License: LGPL
+  |*/
+
 import QtQuick 2.0
 import Barrel 1.0
 

@@ -1,3 +1,8 @@
+/*|File: outlineRectangle.qml
+  |Author: Son Hai Nguyen
+  |License: LGPL
+  |*/
+
 import QtQuick 2.0
 import Outline 1.0
 

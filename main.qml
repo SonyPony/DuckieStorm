@@ -1,3 +1,8 @@
+/*|File: main.qml
+  |Author: Son Hai Nguyen
+  |License: LGPL
+  |*/
+
 import QtQuick 2.2
 import QtQuick.Controls 1.1
 import QtMultimedia 5.3

@@ -1,3 +1,8 @@
+/*|File: barrelLogic.js
+  |Author: Son Hai Nguyen
+  |License: LGPL
+  |*/
+
 .import "../res/shapes.js" as Shapes
 
 /*|-----------------------------------------------------------------------------------

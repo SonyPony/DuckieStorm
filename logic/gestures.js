@@ -1,3 +1,8 @@
+/*|File: gestures.js
+  |Author: Son Hai Nguyen
+  |License: LGPL
+  |*/
+
 function checkSlide(y1, y2, lenghtOfSlide) {    //není přítomnost eventů na slide
     if(Math.abs(y1-y2)>=lenghtOfSlide && root.mousePressed) {
         root.touchY = y2;

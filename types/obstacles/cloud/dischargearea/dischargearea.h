@@ -1,3 +1,8 @@
+/*|File: dischargearea.h
+  |Author: Son Hai Nguyen
+  |License: LGPL
+  |*/
+
 #ifndef DISCHARGEAREA_H
 #define DISCHARGEAREA_H
 

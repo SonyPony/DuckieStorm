@@ -1,3 +1,8 @@
+/*|File: obstacle.h
+  |Author: Son Hai Nguyen
+  |License: LGPL
+  |*/
+
 #ifndef OBSTACLE_H
 #define OBSTACLE_H
 
