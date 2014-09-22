@@ -1,3 +1,8 @@
+/*|File: filestream.h
+  |Author: Son Hai Nguyen
+  |License: LGPL
+  |*/
+
 #ifndef FILESTREAM_H
 #define FILESTREAM_H
 

@@ -1,3 +1,8 @@
+/*|File: visibleitem.h
+  |Author: Son Hai Nguyen
+  |License: LGPL
+  |*/
+
 #ifndef VISIBLEITEM_H
 #define VISIBLEITEM_H
 

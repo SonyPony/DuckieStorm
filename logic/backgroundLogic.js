@@ -1,3 +1,8 @@
+/*|File: backgroundLogic.js
+  |Author: Son Hai Nguyen
+  |License: LGPL
+  |*/
+
 .import "generalLogic.js" as GL
 
 /*|-----------------------------------------------------------------------------------
@@ -42,7 +47,7 @@ function initFirstTrees() {
     var highLimit = 2*game.sizeOfPixel
     var lowLimit = 0.5*game.sizeOfPixel
     var previousX = 0;
-    var numberOfTrees = GL.toNumberOfPixels(root.width)/10.5
+    var numberOfTrees = Math.floor(GL.toNumberOfPixels(root.width)/10.75)
 
     for(var i = 0; i<numberOfTrees; i++) {
         component = Qt.createComponent("../components_dynamic/tree.qml");

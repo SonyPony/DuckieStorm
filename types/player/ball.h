@@ -1,3 +1,8 @@
+/*|File: ball.h
+  |Author: Son Hai Nguyen
+  |License: LGPL
+  |*/
+
 #ifndef BALL_H
 #define BALL_H
 

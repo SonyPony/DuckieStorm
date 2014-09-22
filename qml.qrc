@@ -34,5 +34,6 @@
         <file>res/images/scoredialog_FBButton.svg</file>
         <file>res/images/pauseButton.svg</file>
         <file>components_static/Tutorial.qml</file>
+        <file>LICENSE.LGPL</file>
     </qresource>
 </RCC>

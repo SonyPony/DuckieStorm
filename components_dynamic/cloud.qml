@@ -1,3 +1,8 @@
+/*|File: cloud.qml
+  |Author: Son Hai Nguyen
+  |License: LGPL
+  |*/
+
 import QtQuick 2.0
 import Cloud 1.0
 import DischargeArea 1.0

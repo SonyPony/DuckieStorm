@@ -1,3 +1,8 @@
+/*|File: trees.h
+  |Author: Son Hai Nguyen
+  |License: LGPL
+  |*/
+
 #ifndef TREES_H
 #define TREES_H
 

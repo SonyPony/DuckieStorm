@@ -1,3 +1,8 @@
+/*|File: generalLogic.js
+  |Author: Son Hai Nguyen
+  |License: LGPL
+  |*/
+
 /*|-----------------------------------------------------------------------------------
   |------------------------------Vrací podíl dvou čísel-------------------------------
   |----------------------------------------------------------------------------------*/
@@ -21,4 +26,8 @@ function duration(width, height, pDuration) {
 
 function toNumberOfPixels(value) {
     return Math.floor(value/game.sizeOfPixel);
+}
+
+function pixels(density, mm) {
+    return density*mm;
 }

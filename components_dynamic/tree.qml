@@ -1,3 +1,8 @@
+/*|File: tree.qml
+  |Author: Son Hai Nguyen
+  |License: LGPL
+  |*/
+
 import QtQuick 2.0
 
 import Tree 1.0

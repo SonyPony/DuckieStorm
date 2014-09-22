@@ -1,3 +1,8 @@
+/*|File: barrels.h
+  |Author: Son Hai Nguyen
+  |License: LGPL
+  |*/
+
 #ifndef BARRELS_H
 #define BARRELS_H
 

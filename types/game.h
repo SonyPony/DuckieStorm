@@ -1,3 +1,8 @@
+/*|File: game.h
+  |Author: Son Hai Nguyen
+  |License: LGPL
+  |*/
+
 #ifndef GAME_H
 #define GAME_H
 
