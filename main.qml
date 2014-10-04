@@ -269,6 +269,7 @@ ApplicationWindow {
             game.onPausedChanged.connect(barrels.handleGamePause)
             game.onPausedChanged.connect(clouds.handleGamePause)
             game.onPausedChanged.connect(trees.handleGamePause)
+            game.onPausedChanged.connect(sounds.soundtrack.handleGamePause)
 
             game.restart.connect(scoreDialog.hide)
             game.restart.connect(duck.restart)
