@@ -15,7 +15,7 @@ Outline { //okrajový obdelník na kontrolování kolize předmětů
 
     /*---DEBUG---*/
     visible: true
-    color: "red"
+    color: "transparent"
     z: 10
     /*-----------*/
 

@@ -278,6 +278,7 @@ ApplicationWindow {
             game.onPausedChanged.connect(barrels.handleGamePause)
             game.onPausedChanged.connect(clouds.handleGamePause)
             game.onPausedChanged.connect(trees.handleGamePause)
+            game.onPausedChanged.connect(sounds.soundtrack.handleGamePause)
 
             game.restart.connect(scoreDialog.hide)
             game.restart.connect(duck.restart)
@@ -330,10 +331,10 @@ ApplicationWindow {
         onReleased: {
             root.mousePressed = false;
 
-            if(Gestures.checkClick(root.touchX, root.touchY, mouse.x, mouse.y, GL.pixels(Screen.logicalPixelDensity, 1.5))) //pokud byl proveden klik hodí kachnička míčem
+            if(Gestures.checkClick(root.touchX, root.touchY, mouse.x, mouse.y, GL.pixels(Screen.logicalPixelDensity, 2.5))) //pokud byl proveden klik hodí kachnička míčem
                 ball.calculateInfo(mouse.x, mouse.y);
 
-            if(Gestures.checkClick(root.touchX, root.touchY, mouse.x, mouse.y, GL.pixels(Screen.logicalPixelDensity, 1.5)) && tutorial.visible) {   //první klik ve hře
+            if(Gestures.checkClick(root.touchX, root.touchY, mouse.x, mouse.y, GL.pixels(Screen.logicalPixelDensity, 2.5)) && tutorial.visible) {   //první klik ve hře
                 tutorial.opacity = 0.0
                 pauseButton.children[0].enabled = true
                 game.paused = false
@@ -341,7 +342,7 @@ ApplicationWindow {
         }
 
         onPositionChanged: {
-            switch(Gestures.checkSlide(root.touchY, mouse.y, GL.pixels(Screen.logicalPixelDensity, 7))) {
+            switch(Gestures.checkSlide(root.touchY, mouse.y, GL.pixels(Screen.logicalPixelDensity, 12))) {
                 case "slide up":
                     duck.jump()
                     break;
