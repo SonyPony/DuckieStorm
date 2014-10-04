@@ -13,6 +13,7 @@ Item {
     property alias lightingSound: lightingSound
     property alias outWaterSound: outWaterSound
     property alias inWaterSound: inWaterSound
+    property alias soundtrack: soundtrack
     /*-----------------------------------*/
 
     /*--------------Skóre----------------*/
@@ -66,7 +67,13 @@ Item {
 
         source: "../res/sounds/test.mp3"
         onStopped: soundtrack.play()
-        Component.onCompleted: soundtrack.play()
+
+        function handleGamePause() {
+            if(game.paused)
+                soundtrack.pause()
+            else
+                soundtrack.play()
+        }
     }
     /*-----------------------------------*/
 }
