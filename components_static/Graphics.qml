@@ -62,7 +62,7 @@ Item {
         z: 1
 
         text: "0"
-        color: "white"
+        color: "#FFC90E"
 
         font.pixelSize: 8*game.sizeOfPixel
         font.family: pixelFont.name
